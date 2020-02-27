@@ -16,8 +16,9 @@ export default Header
 
 const HeaderStyle: CSSProperties = {
     height: '4rem',
-    backgroundColor: 'blue',
+    backgroundColor: 'rgba(0, 0, 0, 0.2)',
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
+    color: 'whitesmoke',
 }

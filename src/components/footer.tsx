@@ -18,11 +18,12 @@ export default Footer
 
 const FooterStyle: CSSProperties = {
     height: '4rem',
-    backgroundColor: 'yellow',
+    backgroundColor: 'rgba(0, 0, 0, 0.2)',
     position: 'absolute',
     bottom: '0',
     width: '100%',
     display: 'flex',
     justifyContent: 'space-around',
-    alignItems: 'center'
+    alignItems: 'center',
+    color: 'whitesmoke',
 }

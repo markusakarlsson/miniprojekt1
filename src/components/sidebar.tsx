@@ -2,14 +2,18 @@ import React, { CSSProperties } from 'react';
 
 class Sidebar extends React.Component {
 
+
+    hoverHover(e: any) {
+        e.target.style.background = 'blue';
+    }
     render() {
         return (
-            <aside style={SidebarStyle}>
-                <ul style={UlStyle}>
-                    <li style={LiStyle}>hehe</li>
-                    <li style={LiStyle} >haha</li>
-                    <li style={LiStyle}>höhö</li>
-                </ul>
+            <aside 
+            // style={SidebarStyle}
+            >
+                <div onMouseOver={this.hoverHover} style={arrowRight}>
+                    <i style={icon} className="fas fa-rocket"></i>
+                </div>
             </aside>
         )
     }
@@ -17,27 +21,23 @@ class Sidebar extends React.Component {
 
 export default Sidebar
 
-const SidebarStyle: CSSProperties = {
-    margin: '10% 0 10% 80%',
-    backgroundColor: 'green',
-    width: '10rem',
-    position: 'fixed',
-    zIndex: 1000,
+// const SidebarStyle: CSSProperties = {
+//     position: 'fixed',
+//     zIndex: 1000,
+// }
+
+const icon: CSSProperties = {
+    zIndex: 1500,
+    color: 'white'
 }
 
-const UlStyle: CSSProperties = {
-    listStyleType: 'none',
-    display: 'flex',
-    flexDirection: 'column',
-    justifyItems: 'center',
-    alignItems: 'center'
-
-}
-
-const LiStyle: CSSProperties ={
-    width: '4rem',
-    height: '4rem',
-    display: 'flex',
-    justifyItems: 'center',
-    alignItems: 'center'
+const arrowRight: CSSProperties = {
+    marginTop: '-11rem',
+    marginLeft: '-2rem',
+    width: '0',
+    height: '0',
+    borderTop: '10rem solid transparent',
+    borderBottom: '10rem solid transparent',
+    borderLeft: '10rem solid var(--color1)',
+    transform: 'rotate(225deg)',
 }
