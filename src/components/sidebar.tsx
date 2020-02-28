@@ -1,4 +1,5 @@
 import React, { CSSProperties } from 'react';
+import DisplayDiv from './displaydiv';
 
 
 
@@ -17,61 +18,86 @@ class Sidebar extends React.Component<Props, State> {
         this.state = {
             toggle: false
         }
-        this.hoverHover = this.hoverHover.bind(this)
+        this.clickSidebar = this.clickSidebar.bind(this)
     }
 
-    hoverHover(e: React.MouseEvent<HTMLDivElement, MouseEvent>) {
+    clickSidebar(e: React.MouseEvent<HTMLDivElement, MouseEvent>) {
         this.setState(state => ({
             toggle: !state.toggle
         }))
         console.log(this.state.toggle);
 
-        
-        
+
+
 
     }
     render() {
-        if(!this.state.toggle) {
-
-            return (
+        return (
+            <>
                 <aside>
-                    
-                    <div onMouseOver={this.hoverHover} style={arrowRight}>
+                    <div onClick={this.clickSidebar} style={this.state.toggle ? arrowRight2 : arrowRight}>
+                        <div className='icon-move'>
                         <i style={icon} className="fas fa-rocket"></i>
-                    </div>
-                    <div onMouseOver={this.hoverHover} style={arrowRight}>
-                        <i style={icon} className="fas fa-rocket"></i>
+                        </div>
                     </div>
                 </aside>
-            )
-        } else {
-            return(
-                <p>fuck</p>
-                )
-                
-        }
+                {this.state.toggle && (
+                    <div style={displayStyle}>
+                        <DisplayDiv />
+                    </div>
+                )}
+            </>
+        )
     }
 }
 
 export default Sidebar
 
-// const SidebarStyle: CSSProperties = {
-//     position: 'fixed',
-//     zIndex: 1000,
-// }
+
+const displayStyle: CSSProperties = {
+    height: '100%',
+
+    width: '100%',
+    zIndex: 1500,
+    backgroundColor: 'var(--color2)',
+    borderRadius: '5px',
+}
 
 const icon: CSSProperties = {
     zIndex: 1500,
-    color: 'white'
+    color: 'white',
+    marginLeft: '-6.5rem',
+    marginTop: '-2rem',
+    fontSize: '3rem',
+    transform: 'rotate(225deg)'
 }
 
 const arrowRight: CSSProperties = {
-    marginTop: '-11rem',
-    marginLeft: '-2rem',
+    top: '-6.5rem',
+    left: '-2rem',
     width: '0',
     height: '0',
     borderTop: '10rem solid transparent',
     borderBottom: '10rem solid transparent',
     borderLeft: '10rem solid var(--color1)',
     transform: 'rotate(225deg)',
+    position: 'fixed',
 }
+
+const arrowRight2: CSSProperties = {
+    top: '-6.5rem',
+    left: '-2rem',
+    position: 'fixed',
+    width: '0',
+    height: '0',
+    borderTop: '10rem solid transparent',
+    borderBottom: '10rem solid transparent',
+    borderLeft: '10rem solid var(--color3)',
+    transform: 'rotate(225deg)',
+}
+
+
+
+
+
+

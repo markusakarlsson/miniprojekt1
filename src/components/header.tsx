@@ -6,7 +6,7 @@ class Header extends React.Component {
     render() {
         return(
             <header style={HeaderStyle}>
-                <h1>Miniprojekt</h1>
+                <h1>SPACE PROJECT</h1>
             </header>
         )
     }
@@ -15,10 +15,11 @@ class Header extends React.Component {
 export default Header
 
 const HeaderStyle: CSSProperties = {
-    height: '4rem',
-    backgroundColor: 'rgba(0, 0, 0, 0.2)',
+    height: '5rem',
+    backgroundColor: 'rgba(0, 0, 0, 0.35)',
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
     color: 'whitesmoke',
+    letterSpacing: '3px'
 }
