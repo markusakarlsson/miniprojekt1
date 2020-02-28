@@ -9,7 +9,7 @@ class DisplayDiv extends React.Component<{},{}> {
     render() {
         return(
             <div style={DisplayStyle}>
-                <div>MARKU</div>
+                <div>NASSSÁAAAA</div>
             </div>
         )
     }

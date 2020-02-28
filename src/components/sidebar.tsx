@@ -37,7 +37,9 @@ class Sidebar extends React.Component<Props, State> {
                 <aside>
                     <div onClick={this.clickSidebar} style={this.state.toggle ? arrowRight2 : arrowRight}>
                         <div className='icon-move'>
-                        <i style={icon} className="fas fa-rocket"></i>
+                            <a>
+                                <i style={icon} className="fas fa-rocket"></i>
+                            </a>
                         </div>
                     </div>
                 </aside>
@@ -56,10 +58,8 @@ export default Sidebar
 
 const displayStyle: CSSProperties = {
     height: '100%',
-
     width: '100%',
-    zIndex: 1500,
-    backgroundColor: 'var(--color2)',
+    backgroundColor: 'rgb(236, 236, 236)',
     borderRadius: '5px',
 }
 
@@ -79,7 +79,7 @@ const arrowRight: CSSProperties = {
     height: '0',
     borderTop: '10rem solid transparent',
     borderBottom: '10rem solid transparent',
-    borderLeft: '10rem solid var(--color1)',
+    borderLeft: '10rem solid var(--color4)',
     transform: 'rotate(225deg)',
     position: 'fixed',
 }
@@ -95,6 +95,7 @@ const arrowRight2: CSSProperties = {
     borderLeft: '10rem solid var(--color3)',
     transform: 'rotate(225deg)',
 }
+
 
 
 
