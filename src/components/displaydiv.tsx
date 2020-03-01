@@ -1,15 +1,40 @@
 import React, { CSSProperties } from 'react';
+import Items from './items';
+
+export interface AllItems {
+    item: string
+}
+interface Props {}
+
+interface State {
+    allItems: AllItems[]
+}
+class DisplayDiv extends React.Component<Props, State> {
+    constructor(props: Props) {
+        super(props)
+        this.state = {
+            allItems: [{
+                 item: 'test1', 
+            }, { 
+                item: 'test2', 
+            }, { 
+                item: 'test3', 
+            }, { 
+                item: 'test4', 
+            },  { 
+                item: 'test5', 
+            },  { 
+                item: 'test6',
+            }]
+        }
+    }
 
 
-
-class DisplayDiv extends React.Component<{},{}> {
-
-
-    
     render() {
-        return(
+        return (
             <div style={DisplayStyle}>
-                <div>NASSSÁAAAA</div>
+
+                <Items items={this.state.allItems} />
             </div>
         )
     }
