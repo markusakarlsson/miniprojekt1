@@ -21,7 +21,7 @@ class Items extends React.Component<Props, State> {
     render() {
         return (
             <div>
-                <ul>
+                <ul style={UlStyle}>
                     {this.props.items.map((item) => <Item allItems={item}/>)}
                 </ul>
             </div>
@@ -31,3 +31,12 @@ class Items extends React.Component<Props, State> {
 }
 
 export default Items;
+
+const UlStyle: CSSProperties = {
+    height: '100%',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    listStyleType: 'none',
+    flexWrap: 'wrap'
+}

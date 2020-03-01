@@ -2,7 +2,9 @@ import React, { CSSProperties } from 'react';
 import Items from './items';
 
 export interface AllItems {
+    title: string
     item: string
+    alt: string
 }
 interface Props {}
 
@@ -14,17 +16,29 @@ class DisplayDiv extends React.Component<Props, State> {
         super(props)
         this.state = {
             allItems: [{
-                 item: 'test1', 
+                title: 'mars',
+                item: 'https://images.unsplash.com/photo-1538551868183-edf7bfc50391?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80', 
+                alt: 'space stuff'
+                }, { 
+                title: 'mars',
+                    item: 'https://images.unsplash.com/photo-1538551868183-edf7bfc50391?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80', 
+                    alt: 'space stuff'
             }, { 
-                item: 'test2', 
+                title: 'mars',
+                item: 'https://images.unsplash.com/photo-1538551868183-edf7bfc50391?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80', 
+                alt: 'space stuff'
             }, { 
-                item: 'test3', 
-            }, { 
-                item: 'test4', 
-            },  { 
-                item: 'test5', 
-            },  { 
-                item: 'test6',
+                title: 'mars',
+                item: 'https://images.unsplash.com/photo-1538551868183-edf7bfc50391?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80', 
+                alt: 'space stuff'}
+            ,  { 
+                title: 'mars',
+                item: 'https://images.unsplash.com/photo-1538551868183-edf7bfc50391?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80', 
+                alt: 'space stuff'}
+            ,  { 
+                title: 'mars',
+                item: 'https://images.unsplash.com/photo-1538551868183-edf7bfc50391?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80',
+                alt: 'space stuff'
             }]
         }
     }
@@ -45,7 +59,6 @@ class DisplayDiv extends React.Component<Props, State> {
 export default DisplayDiv;
 
 const DisplayStyle: CSSProperties = {
-    // backgroundColor: 'var(--color3)',
     height: '100%',
     width: '100%',
     display: 'flex',

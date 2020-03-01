@@ -37,9 +37,7 @@ class Sidebar extends React.Component<Props, State> {
                 <aside>
                     <div onClick={this.clickSidebar} style={this.state.toggle ? arrowRight2 : arrowRight}>
                         <div className='icon-move'>
-                            <a>
                                 <i style={icon} className="fas fa-rocket"></i>
-                            </a>
                         </div>
                     </div>
                 </aside>
@@ -61,7 +59,6 @@ const displayStyle: CSSProperties = {
     height: '100%',
     width: '100%',
     backgroundColor: 'rgb(236, 236, 236)',
-    borderRadius: '5px',
 }
 
 const icon: CSSProperties = {
