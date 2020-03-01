@@ -7,9 +7,9 @@ class Footer extends React.Component {
     render() {
         return (
             <footer style={FooterStyle}>
-                <p><img style={iconStyle} src='./assets/info-solid.svg' /></p>
-                <p><img style={iconStyle} src='./assets/instagram-brands.svg' /></p>
-                <p><img style={iconStyle} src='./assets/comment-regular.svg' /></p>
+                <p><img style={iconStyle} src='./assets/info-solid.svg' alt='info' /></p>
+                <p><img style={iconStyle} src='./assets/instagram-brands.svg' alt='instagram' /></p>
+                <p><img style={iconStyle} src='./assets/comment-regular.svg' alt='chat' /></p>
             </footer>
         )
     }

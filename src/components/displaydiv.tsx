@@ -2,11 +2,12 @@ import React, { CSSProperties } from 'react';
 import Items from './items';
 
 export interface AllItems {
+    id: string
     title: string
     item: string
     alt: string
 }
-interface Props {}
+interface Props { }
 
 interface State {
     allItems: AllItems[]
@@ -16,26 +17,34 @@ class DisplayDiv extends React.Component<Props, State> {
         super(props)
         this.state = {
             allItems: [{
+                id: '1',
                 title: 'mars',
-                item: 'https://images.unsplash.com/photo-1538551868183-edf7bfc50391?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80', 
+                item: 'https://images.unsplash.com/photo-1538551868183-edf7bfc50391?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80',
                 alt: 'space stuff'
-                }, { 
+            }, {
+                id: '2',
                 title: 'mars',
-                    item: 'https://images.unsplash.com/photo-1538551868183-edf7bfc50391?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80', 
-                    alt: 'space stuff'
-            }, { 
-                title: 'mars',
-                item: 'https://images.unsplash.com/photo-1538551868183-edf7bfc50391?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80', 
+                item: 'https://images.unsplash.com/photo-1573588028698-f4759befb09a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1490&q=80',
                 alt: 'space stuff'
-            }, { 
+            }, {
+                id: '3',
                 title: 'mars',
-                item: 'https://images.unsplash.com/photo-1538551868183-edf7bfc50391?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80', 
-                alt: 'space stuff'}
-            ,  { 
+                item: 'https://images.unsplash.com/photo-1538551868183-edf7bfc50391?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80',
+                alt: 'space stuff'
+            }, {
+                id: '4',
                 title: 'mars',
-                item: 'https://images.unsplash.com/photo-1538551868183-edf7bfc50391?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80', 
-                alt: 'space stuff'}
-            ,  { 
+                item: 'https://images.unsplash.com/photo-1538551868183-edf7bfc50391?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80',
+                alt: 'space stuff'
+            }
+                , {
+                id: '5',
+                title: 'mars',
+                item: 'https://images.unsplash.com/photo-1538551868183-edf7bfc50391?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80',
+                alt: 'space stuff'
+            }
+                , {
+                id: '6',
                 title: 'mars',
                 item: 'https://images.unsplash.com/photo-1538551868183-edf7bfc50391?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80',
                 alt: 'space stuff'
