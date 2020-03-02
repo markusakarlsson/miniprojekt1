@@ -1,6 +1,7 @@
 import React, { CSSProperties } from 'react';
 import DisplayDiv from './displaydiv';
 
+import { Link } from 'react-router-dom';
 
 
 interface Props { }
@@ -29,6 +30,7 @@ class Sidebar extends React.Component<Props, State> {
     render() {
         return (
             <>
+                <Link to="/images">
                 <aside>
                     <div onClick={this.clickSidebar} style={this.state.toggle ? arrowRight2 : arrowRight}>
                         <div className='icon-move'>
@@ -36,10 +38,13 @@ class Sidebar extends React.Component<Props, State> {
                         </div>
                     </div>
                 </aside>
+                </Link>
                 {this.state.toggle && (
+                    <Link to="">
                     <div style={displayStyle}>
                         <DisplayDiv />
                     </div>
+                    </Link>
                 )}
             </>
         )

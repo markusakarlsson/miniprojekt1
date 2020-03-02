@@ -1,4 +1,5 @@
 import React from 'react';
+import { BrowserRouter } from 'react-router-dom'
 import MainComponent from './components/main';
 
 interface Props {}
@@ -35,10 +36,11 @@ class App extends React.Component<Props, State> {
   render () {
     console.log(this.state.size)
     return (
-      <div className="App">
-        <MainComponent />
-  
-      </div>
+      <BrowserRouter>
+        <div className="App">
+          <MainComponent />
+        </div>
+      </BrowserRouter>
     );
   }
 }

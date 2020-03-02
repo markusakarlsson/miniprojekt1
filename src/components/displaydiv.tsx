@@ -1,5 +1,6 @@
 import React, { CSSProperties } from 'react';
 import Items from './items';
+import { Link } from 'react-router-dom';
 
 export interface AllItems {
     id: string
@@ -23,7 +24,7 @@ class DisplayDiv extends React.Component<Props, State> {
                 alt: 'space stuff'
             }, {
                 id: '2',
-                title: 'mars',
+                title: 'spaceman',
                 item: 'https://images.unsplash.com/photo-1573588028698-f4759befb09a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1490&q=80',
                 alt: 'space man'
             }, {
@@ -55,10 +56,12 @@ class DisplayDiv extends React.Component<Props, State> {
 
     render() {
         return (
+            <Link to="">
             <div style={DisplayStyle}>
-
                 <Items items={this.state.allItems} />
             </div>
+            </Link>
+
         )
     }
 

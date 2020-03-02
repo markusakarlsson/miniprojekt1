@@ -1,4 +1,5 @@
 import React, { CSSProperties} from 'react';
+import { Link } from 'react-router-dom';
 
 import { AllItems } from './displaydiv';
 
@@ -21,10 +22,12 @@ class DisplayImg extends React.Component<Props, State> {
 
     render() {
         return(
+            <Link to="/images">
             <div style={BigImgDivStyle} onClick={this.props.displayNone} key={this.props.displayImg.id}>
                 <img style={BigImgStyle} src={this.props.displayImg.item} alt={this.props.displayImg.alt} />
                 <p>{this.props.displayImg.title}</p>
             </div>
+            </Link>
         )
     }
 }

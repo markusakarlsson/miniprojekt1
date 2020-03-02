@@ -1,5 +1,6 @@
 import React, { CSSProperties } from 'react';
 import DisplayImg from './displayimg';
+import { Link } from 'react-router-dom'
 
 import { AllItems } from './displaydiv';
 
@@ -32,10 +33,12 @@ class Item extends React.Component<Props, State> {
 
         return (
             <>
+            <Link to={"/images/" + this.props.allItems.title} style={LiStyle}>
                 <li key={this.props.allItems.id} onClick={this.displayImg} style={LiStyle}>
                     <img style={ImgStyle} src={this.props.allItems.item} alt={this.props.allItems.alt} />
                     <p>{this.props.allItems.title}</p>
                 </li>
+            </Link>
 
                 {this.state.toggle && (
                     <DisplayImg displayNone={this.displayImg} displayImg={this.props.allItems} />
