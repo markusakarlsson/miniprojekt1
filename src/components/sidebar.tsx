@@ -25,11 +25,6 @@ class Sidebar extends React.Component<Props, State> {
         this.setState(state => ({
             toggle: !state.toggle
         }))
-        console.log(this.state.toggle);
-
-
-
-
     }
     render() {
         return (

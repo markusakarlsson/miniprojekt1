@@ -13,9 +13,9 @@ class MainComponent extends React.Component {
         return (
             <>
                 <main style={MainStyle}>
-                <Header />
+                    <Header />
                     <Sidebar />
-                <Footer />
+                    <Footer />
                 </main>
             </>
         )

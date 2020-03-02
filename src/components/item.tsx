@@ -1,11 +1,14 @@
 import React, { CSSProperties } from 'react';
+import DisplayImg from './displayimg';
+
 import { AllItems } from './displaydiv';
+
 
 interface Props {
     allItems: AllItems
 }
 interface State {
-
+    toggle: boolean
 }
 
 
@@ -13,14 +16,31 @@ class Item extends React.Component<Props, State> {
     constructor(props: Props) {
         super(props)
 
+        this.state = {
+            toggle: false
+        }
+        this.displayImg = this.displayImg.bind(this)
+    }
+
+    displayImg() {
+        this.setState(state => ({
+            toggle: !state.toggle
+        }))
     }
 
     render() {
-        return(
-            <li style={LiStyle}>
-                <img style={ImgStyle} src={ this.props.allItems.item } alt={this.props.allItems.alt} />
-                <p>{this.props.allItems.title}</p>
-            </li>
+
+        return (
+            <>
+                <li key={this.props.allItems.id} onClick={this.displayImg} style={LiStyle}>
+                    <img style={ImgStyle} src={this.props.allItems.item} alt={this.props.allItems.alt} />
+                    <p>{this.props.allItems.title}</p>
+                </li>
+
+                {this.state.toggle && (
+                    <DisplayImg displayNone={this.displayImg} displayImg={this.props.allItems} />
+                    )}
+                    </>
         )
     }
 }
@@ -38,5 +58,5 @@ const LiStyle: CSSProperties = {
 
 const ImgStyle: CSSProperties = {
     height: '14rem',
-    width: '16rem',
+    width: 'auto',
 }
