@@ -22,8 +22,8 @@ class DisplayImg extends React.Component<Props, State> {
     render() {
         return(
             <div style={BigImgDivStyle} onClick={this.props.displayNone} key={this.props.displayImg.id}>
-                <p>{this.props.displayImg.title}</p>
                 <img style={BigImgStyle} src={this.props.displayImg.item} alt={this.props.displayImg.alt} />
+                <p>{this.props.displayImg.title}</p>
             </div>
         )
     }

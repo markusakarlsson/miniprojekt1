@@ -25,7 +25,7 @@ class DisplayDiv extends React.Component<Props, State> {
                 id: '2',
                 title: 'mars',
                 item: 'https://images.unsplash.com/photo-1573588028698-f4759befb09a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1490&q=80',
-                alt: 'space stuff'
+                alt: 'space man'
             }, {
                 id: '3',
                 title: 'mars',

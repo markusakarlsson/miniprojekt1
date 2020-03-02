@@ -26,10 +26,10 @@ class Item extends React.Component<Props, State> {
         this.setState(state => ({
             toggle: !state.toggle
         }))
-        console.log(this.state.toggle);
     }
 
     render() {
+
         return (
             <>
                 <li key={this.props.allItems.id} onClick={this.displayImg} style={LiStyle}>
