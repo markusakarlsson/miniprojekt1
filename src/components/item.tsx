@@ -1,15 +1,16 @@
 import React, { CSSProperties } from 'react';
-import DisplayImg from './displayimg';
+
 import { Link } from 'react-router-dom'
 
-import { AllItems } from './displaydiv';
+import { AllItems } from './sidebardiv';
 
 
 interface Props {
-    allItems: AllItems
+    item: AllItems
+    displayFunc: () => void;
 }
 interface State {
-    toggle: boolean
+    
 }
 
 
@@ -17,33 +18,18 @@ class Item extends React.Component<Props, State> {
     constructor(props: Props) {
         super(props)
 
-        this.state = {
-            toggle: false
-        }
-        this.displayImg = this.displayImg.bind(this)
-    }
-
-    displayImg() {
-        this.setState(state => ({
-            toggle: !state.toggle
-        }))
     }
 
     render() {
-
         return (
-            <>
-            <Link to={"/images/" + this.props.allItems.title} style={LiStyle}>
-                <li key={this.props.allItems.id} onClick={this.displayImg} style={LiStyle}>
-                    <img style={ImgStyle} src={this.props.allItems.item} alt={this.props.allItems.alt} />
-                    <p>{this.props.allItems.title}</p>
+
+            <Link to={"/images/" + this.props.item.title} style={LiStyle}>
+                <li key={this.props.item.id} onClick={this.props.displayFunc} style={LiStyle}>
+                    <img style={ImgStyle} src={this.props.item.item} alt={this.props.item.alt} />
+                    <p>{this.props.item.title}</p>
                 </li>
             </Link>
 
-                {this.state.toggle && (
-                    <DisplayImg displayNone={this.displayImg} displayImg={this.props.allItems} />
-                    )}
-                    </>
         )
     }
 }

@@ -1,18 +1,16 @@
 import React, { CSSProperties} from 'react';
 import { Link } from 'react-router-dom';
 
-import { AllItems } from './displaydiv';
+import { AllItems } from './sidebardiv';
 
 interface Props {
-    displayImg: AllItems
+    item: AllItems
     displayNone: () => void;
 }
 
 interface State {
 
 }
-
-
 
 
 class DisplayImg extends React.Component<Props, State> {
@@ -22,11 +20,12 @@ class DisplayImg extends React.Component<Props, State> {
 
     render() {
         return(
-            <Link to="/images">
-            <div style={BigImgDivStyle} onClick={this.props.displayNone} key={this.props.displayImg.id}>
-                <img style={BigImgStyle} src={this.props.displayImg.item} alt={this.props.displayImg.alt} />
-                <p>{this.props.displayImg.title}</p>
+            <Link to={"/images"}>
+            <div style={BigImgDivStyle} onClick={this.props.displayNone} key={this.props.item.id}>
+                <img style={BigImgStyle} src={this.props.item.item} alt={this.props.item.alt} />
+                <p>{this.props.item.title}</p>
             </div>
+            <div onClick={this.props.displayNone}>hejsh</div>
             </Link>
         )
     }
@@ -42,6 +41,7 @@ const BigImgDivStyle: CSSProperties = {
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
+    background: 'rgba(0, 0, 0, 0.65)'
 }
 
 const BigImgStyle: CSSProperties = {

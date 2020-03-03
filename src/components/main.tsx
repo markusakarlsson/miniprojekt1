@@ -2,6 +2,7 @@ import React, { CSSProperties } from 'react';
 import Header from './header';
 import Footer from './footer';
 import Sidebar from './sidebar';
+import { Link } from 'react-router-dom';
 
 
 
@@ -11,6 +12,7 @@ class MainComponent extends React.Component {
 
     render() {
         return (
+            
             <>
                 <main style={MainStyle}>
                     <Header />
@@ -18,6 +20,7 @@ class MainComponent extends React.Component {
                     <Footer />
                 </main>
             </>
+       
         )
     }
 }

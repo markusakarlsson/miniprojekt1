@@ -13,7 +13,7 @@ interface Props { }
 interface State {
     allItems: AllItems[]
 }
-class DisplayDiv extends React.Component<Props, State> {
+class SidebarDiv extends React.Component<Props, State> {
     constructor(props: Props) {
         super(props)
         this.state = {
@@ -68,7 +68,7 @@ class DisplayDiv extends React.Component<Props, State> {
 
 }
 
-export default DisplayDiv;
+export default SidebarDiv;
 
 const DisplayStyle: CSSProperties = {
     height: '100%',

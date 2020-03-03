@@ -1,5 +1,5 @@
 import React, { CSSProperties } from 'react';
-import DisplayDiv from './displaydiv';
+import SidebarDiv from './sidebardiv';
 
 import { Link } from 'react-router-dom';
 
@@ -39,12 +39,11 @@ class Sidebar extends React.Component<Props, State> {
                     </div>
                 </aside>
                 </Link>
+
                 {this.state.toggle && (
-                    <Link to="">
                     <div style={displayStyle}>
-                        <DisplayDiv />
+                        <SidebarDiv />
                     </div>
-                    </Link>
                 )}
             </>
         )
