@@ -26,7 +26,6 @@ class DisplayImg extends React.Component<Props, State> {
                     <img style={BigImgStyle} src={this.props.item.item} alt={this.props.item.alt} />
                     <p>{this.props.item.title}</p>
                 </div>
-                <div onClick={this.props.displayNone}>hejsh</div>
             </Link>
         )
     }

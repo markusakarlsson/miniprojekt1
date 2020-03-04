@@ -25,9 +25,9 @@ class App extends React.Component<Props, State> {
   }
   
   handleWindowsResize = () => {
-    if (window.innerWidth < 768) {
+    if (window.innerWidth < 579) {
       this.setState({ size: 'mobile' })
-    } else if (window.innerWidth < 1024) {
+    } else if (window.innerWidth < 879) {
       this.setState({ size: 'tablet' })
     } else {
       this.setState({ size: 'desktop' })

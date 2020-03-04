@@ -45,7 +45,7 @@ const MainStyle: CSSProperties = {
     height: '100%',
     // backgroundColor: 'var(--color1)',
     backgroundImage:
-        'url(https://images.unsplash.com/photo-1435224668334-0f82ec57b605?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2850&q=80)',
+    'url(https://images.unsplash.com/photo-1435224668334-0f82ec57b605?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2850&q=80)',
     // 'url("./assets/space.jpg")',
     backgroundPosition: 'center',
     // objectFit: 'cover',
@@ -55,6 +55,6 @@ const MainStyle: CSSProperties = {
 
 
 const MainStyleMobile: CSSProperties = {
-    backgroundColor: 'yellow'
+    // backgroundColor: 'yellow'
 }
 // #D7F2BA #BDE4A8 #9CC69B #79B4A9 #676F54
