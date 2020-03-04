@@ -1,17 +1,34 @@
 import React, { CSSProperties } from 'react';
 
 
-class Footer extends React.Component {
+interface Props {
+    size: string;
+}
 
+interface State {
+    
+}
+
+class Footer extends React.Component<Props, State> {
+    constructor(props: Props) {
+        super(props)
+    }
 
     render() {
-        return (
-            <footer style={FooterStyle}>
-                <p><img style={iconStyle} src='./assets/info-solid.svg' alt='info' /></p>
-                <p><img style={iconStyle} src='./assets/instagram-brands.svg' alt='instagram' /></p>
-                <p><img style={iconStyle} src='./assets/comment-regular.svg' alt='chat' /></p>
+        if(this.props.size === 'desktop') {
+
+            return (
+                <footer style={FooterStyle}>
+                <p><img style={iconStyle} src='./../assets/info-solid.svg' alt='info' /></p>
+                <p><img style={iconStyle} src='./../assets/instagram-brands.svg' alt='instagram' /></p>
+                <p><img style={iconStyle} src='./../assets/comment-regular.svg' alt='chat' /></p>
             </footer>
         )
+    } else {
+        return(
+            null
+        )
+    }
     }
 }
 

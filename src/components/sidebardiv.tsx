@@ -8,7 +8,9 @@ export interface AllItems {
     item: string
     alt: string
 }
-interface Props { }
+interface Props { 
+    size: string
+}
 
 interface State {
     allItems: AllItems[]
@@ -58,7 +60,7 @@ class SidebarDiv extends React.Component<Props, State> {
         return (
             <Link to="">
             <div style={DisplayStyle}>
-                <Items items={this.state.allItems} />
+                <Items size={this.props.size} items={this.state.allItems} />
             </div>
             </Link>
 

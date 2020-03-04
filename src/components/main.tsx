@@ -4,22 +4,33 @@ import Footer from './footer';
 import Sidebar from './sidebar';
 import { Link } from 'react-router-dom';
 
+interface Props {
+    size: string
+}
+
+interface State {
+
+}
 
 
-
-class MainComponent extends React.Component {
-
+class MainComponent extends React.Component<Props, State> {
+    constructor(props: Props) {
+        super(props)
+    }
 
     render() {
+        console.log(this.props.size);
         return (
             <>
-                <main style={MainStyle}>
-                    <Header />
-                    <Sidebar />
-                    <Footer />
+                <main style={this.props.size === 'desktop' ? MainStyle : MainStyleMobile } >
+                    <Header size={this.props.size} />
+                    <Link to="/">
+                        <Sidebar size={this.props.size} />
+                    </Link>
+                    <Footer size={this.props.size} />
                 </main>
             </>
-       
+
         )
     }
 }
@@ -40,9 +51,10 @@ const MainStyle: CSSProperties = {
     // objectFit: 'cover',
     backgroundRepeat: 'no-repeat',
     backgroundSize: '100% 100%',
-
-
-
 }
 
+
+const MainStyleMobile: CSSProperties = {
+    backgroundColor: 'yellow'
+}
 // #D7F2BA #BDE4A8 #9CC69B #79B4A9 #676F54

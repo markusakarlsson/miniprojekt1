@@ -4,7 +4,9 @@ import SidebarDiv from './sidebardiv';
 import { Link } from 'react-router-dom';
 
 
-interface Props { }
+interface Props { 
+    size: string
+}
 
 interface State {
     toggle: boolean
@@ -41,9 +43,11 @@ class Sidebar extends React.Component<Props, State> {
                 </Link>
 
                 {this.state.toggle && (
+                    <Link to="">
                     <div style={displayStyle}>
-                        <SidebarDiv />
+                        <SidebarDiv size={this.props.size} />
                     </div>
+                    </Link>
                 )}
             </>
         )

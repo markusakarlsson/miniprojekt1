@@ -8,6 +8,7 @@ import { AllItems } from './sidebardiv';
 
 interface Props {
     items: AllItems[]
+    size: string
 }
 
 interface State {
@@ -49,8 +50,8 @@ class Items extends React.Component<Props, State> {
                 <ErrorBoundary>
                     <>
                         <div>
-                            <ul style={UlStyle}>
-                                {this.props.items.map((item) => <Item displayFunc={() => this.displayImg(item.id)} item={item} />)}
+                            <ul style={this.props.size === 'desktop' ? UlStyle : UlStyleMobile}>
+                                {this.props.items.map((item) => <Item size={this.props.size} displayFunc={() => this.displayImg(item.id)} item={item} />)}
                             </ul>
                         </div>
                         }
@@ -63,7 +64,7 @@ class Items extends React.Component<Props, State> {
                 <ErrorBoundary>
                     <>
                         {console.log(this.state.index)};
-                <DisplayImg item={this.props.items[Number(this.state.index) - 1]} displayNone={this.displayNone} />
+                <DisplayImg size={this.props.size} item={this.props.items[Number(this.state.index) - 1]} displayNone={this.displayNone} />
                     </>
                 </ErrorBoundary>
             )
@@ -82,4 +83,13 @@ const UlStyle: CSSProperties = {
     alignItems: 'center',
     listStyleType: 'none',
     flexWrap: 'wrap'
+}
+
+const UlStyleMobile: CSSProperties = {
+    height: '100%',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    listStyleType: 'none',
+    flexDirection: 'column',
 }

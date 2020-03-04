@@ -6,6 +6,7 @@ import { AllItems } from './sidebardiv';
 interface Props {
     item: AllItems
     displayNone: () => void;
+    size: string
 }
 
 interface State {

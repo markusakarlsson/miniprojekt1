@@ -25,8 +25,8 @@ class ErrorBoundary extends React.Component<Props, State> {
     render() {
       if (this.state.hasError) {
         return <div style={ErrorStyle}>
-          <img src="./../assets/exclamation-triangle-solid.svg" />
-          <h1 >Something went wrong</h1>
+          <img style={ImgStyle} src="./../assets/exclamation-triangle-solid.svg" />
+          <h1>Something went wrong</h1>
           </div>
       }
   
@@ -44,4 +44,8 @@ const ErrorStyle: CSSProperties = {
   height: '50%',
   width: '60%',
   textAlign: 'center',
+}
+
+const ImgStyle: CSSProperties = {
+  height:'30%',
 }

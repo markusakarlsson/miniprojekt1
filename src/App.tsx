@@ -50,7 +50,7 @@ class App extends React.Component<Props, State> {
         <BrowserRouter>
           <div className="App">
       
-            <MainComponent />
+            <MainComponent size={this.state.size} />
 
           </div>
         </BrowserRouter>

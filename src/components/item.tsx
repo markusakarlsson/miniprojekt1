@@ -8,6 +8,7 @@ import { AllItems } from './sidebardiv';
 interface Props {
     item: AllItems
     displayFunc: () => void;
+    size: string
 }
 interface State {
     
