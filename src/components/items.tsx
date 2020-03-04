@@ -1,6 +1,7 @@
 import React, { CSSProperties } from 'react';
 import Item from './item';
 import DisplayImg from './displayimg';
+import ErrorBoundary from './../errorboundary';
 
 import { AllItems } from './sidebardiv';
 
@@ -42,24 +43,29 @@ class Items extends React.Component<Props, State> {
     }
 
     render() {
+
         if (!this.state.toggle) {
             return (
-                <>
-                    <div>
-                        <ul style={UlStyle}>
-                            {this.props.items.map((item) => <Item displayFunc={() => this.displayImg(item.id)} item={item} />)}
-                        </ul>
-                    </div>
-                    }
+                <ErrorBoundary>
+                    <>
+                        <div>
+                            <ul style={UlStyle}>
+                                {this.props.items.map((item) => <Item displayFunc={() => this.displayImg(item.id)} item={item} />)}
+                            </ul>
+                        </div>
+                        }
                 </>
+                </ErrorBoundary>
 
             )
         } else {
             return (
-                <>
-                    {console.log(this.state.index)};
+                <ErrorBoundary>
+                    <>
+                        {console.log(this.state.index)};
                 <DisplayImg item={this.props.items[Number(this.state.index) - 1]} displayNone={this.displayNone} />
-                </>
+                    </>
+                </ErrorBoundary>
             )
         }
     }

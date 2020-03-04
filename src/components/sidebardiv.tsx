@@ -18,7 +18,7 @@ class SidebarDiv extends React.Component<Props, State> {
         super(props)
         this.state = {
             allItems: [{
-                id: '1',
+                id: '',
                 title: 'mars',
                 item: 'https://images.unsplash.com/photo-1538551868183-edf7bfc50391?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80',
                 alt: 'space stuff'

@@ -1,20 +1,29 @@
 import React from 'react';
-import { BrowserRouter } from 'react-router-dom'
+import { BrowserRouter } from 'react-router-dom';
 import MainComponent from './components/main';
+import ErrorBoundary from './errorboundary';
 
-interface Props {}
+interface Props {
+
+}
 
 interface State {
-  size: 'mobile' | 'tablet' | 'desktop'
+  size: 'mobile' | 'tablet' | 'desktop'
+
 }
 
 class App extends React.Component<Props, State> {
 
+
   constructor(props: Props) {
     super(props)
-    this.state = { size: 'desktop' }
-  }
+    this.state = {
+      size: 'desktop'
+    
+    }
 
+  }
+  
   handleWindowsResize = () => {
     if (window.innerWidth < 768) {
       this.setState({ size: 'mobile' })
@@ -28,19 +37,24 @@ class App extends React.Component<Props, State> {
   componentDidMount() {
     window.addEventListener('resize', this.handleWindowsResize)
   }
-
+  
   componentWillUnmount() {
     window.removeEventListener('resize', this.handleWindowsResize)
   }
   
-  render () {
+  render() {
+
     console.log(this.state.size)
     return (
-      <BrowserRouter>
-        <div className="App">
-          <MainComponent />
-        </div>
-      </BrowserRouter>
+      <ErrorBoundary>
+        <BrowserRouter>
+          <div className="App">
+      
+            <MainComponent />
+
+          </div>
+        </BrowserRouter>
+      </ErrorBoundary>
     );
   }
 }

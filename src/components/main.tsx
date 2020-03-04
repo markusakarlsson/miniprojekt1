@@ -12,7 +12,6 @@ class MainComponent extends React.Component {
 
     render() {
         return (
-            
             <>
                 <main style={MainStyle}>
                     <Header />

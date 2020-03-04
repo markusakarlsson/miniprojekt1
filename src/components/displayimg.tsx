@@ -1,4 +1,4 @@
-import React, { CSSProperties} from 'react';
+import React, { CSSProperties } from 'react';
 import { Link } from 'react-router-dom';
 
 import { AllItems } from './sidebardiv';
@@ -19,13 +19,13 @@ class DisplayImg extends React.Component<Props, State> {
     }
 
     render() {
-        return(
+        return (
             <Link to={"/images"}>
-            <div style={BigImgDivStyle} onClick={this.props.displayNone} key={this.props.item.id}>
-                <img style={BigImgStyle} src={this.props.item.item} alt={this.props.item.alt} />
-                <p>{this.props.item.title}</p>
-            </div>
-            <div onClick={this.props.displayNone}>hejsh</div>
+                <div style={BigImgDivStyle} onClick={this.props.displayNone} key={this.props.item.id}>
+                    <img style={BigImgStyle} src={this.props.item.item} alt={this.props.item.alt} />
+                    <p>{this.props.item.title}</p>
+                </div>
+                <div onClick={this.props.displayNone}>hejsh</div>
             </Link>
         )
     }
