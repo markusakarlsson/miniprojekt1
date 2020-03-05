@@ -50,7 +50,6 @@ const BigImgDivStyle: CSSProperties = {
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
-    background: 'rgba(0, 0, 0, 0.65)'
 }
 
 const BigImgStyle: CSSProperties = {

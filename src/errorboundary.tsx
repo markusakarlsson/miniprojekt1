@@ -44,6 +44,7 @@ const ErrorStyle: CSSProperties = {
   height: '50%',
   width: '60%',
   textAlign: 'center',
+  color: 'white'
 }
 
 const ImgStyle: CSSProperties = {

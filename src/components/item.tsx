@@ -26,8 +26,8 @@ class Item extends React.Component<Props, State> {
             <Link to={"/images/" + this.props.item.title} style={LiStyle}>
                 <ErrorBoundary>
                     <li key={this.props.item.id} onClick={this.props.displayFunc} style={this.props.size === 'desktop' ? LiStyle : LiStyleMobile}>
-                        <img style={this.props.size === 'desktop' ? ImgStyle : ImgStyleMobile} src={this.props.item.item} alt={this.props.item.alt} />
                         <p style={TitleStyle}>{this.props.item.title}</p>
+                        <img style={this.props.size === 'desktop' ? ImgStyle : ImgStyleMobile} src={this.props.item.item} alt={this.props.item.alt} />
                     </li>
                 </ErrorBoundary>
             </Link>
@@ -39,7 +39,9 @@ class Item extends React.Component<Props, State> {
 export default Item;
 
 const TitleStyle: CSSProperties = {
-    textAlign: 'center'
+    textAlign: 'center',
+    color: 'white',
+    textDecoration: 'none'
 }
 
 const LiStyle: CSSProperties = {
@@ -49,6 +51,7 @@ const LiStyle: CSSProperties = {
     alignItems: 'center',
     height: '30%',
     width: '30%',
+    padding: '1rem',
 }
 
 const LiStyleMobile: CSSProperties = {
@@ -60,7 +63,7 @@ const LiStyleMobile: CSSProperties = {
     width: '30%',
 }
 const ImgStyle: CSSProperties = {
-    height: '14rem',
+    height: '10rem',
     width: 'auto',
     overflow: 'hidden'
 }
