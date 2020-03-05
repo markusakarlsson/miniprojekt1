@@ -40,15 +40,15 @@ class MainComponent extends React.Component<Props, State> {
                     <Switch>
                         <Route exact path="/">
                             <Header overflow={this.state.toggleSidebar} size={this.props.size} />
+                            <Sidebar size={this.props.size} path="/images" sidebarToggle={this.clickSidebar} />
                             <Footer overflow={this.state.toggleSidebar} size={this.props.size} />
                         </Route>
                         <Route path="/images">
-                           <SidebarDiv size={this.props.size} />
+                            <SidebarDiv size={this.props.size} />
+                            <Sidebar size={this.props.size} path="/" sidebarToggle={this.clickSidebar} />
                         </Route>
-
                     </Switch>
 
-                    <Sidebar size={this.props.size} sidebarToggle={this.clickSidebar} />
 
                 </main>
             </>

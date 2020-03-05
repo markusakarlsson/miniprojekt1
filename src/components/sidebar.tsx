@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 interface Props {
     size: string
     sidebarToggle: () => void;
+    path: string
 }
 
 interface State {
@@ -45,7 +46,7 @@ class Sidebar extends React.Component<Props, State> {
     }
     render() {
         return (
-            <Link to="/images" onClick={this.props.sidebarToggle}>
+            <Link to={this.props.path} onClick={this.props.sidebarToggle}>
                     <aside>
                         <div style={this.styleSidebarSize()}>
                             <div className='icon-move'>
