@@ -11,7 +11,7 @@ interface Props {
     size: string
 }
 interface State {
-    
+
 }
 
 
@@ -25,11 +25,11 @@ class Item extends React.Component<Props, State> {
         return (
             <Link to={"/images/" + this.props.item.title} style={LiStyle}>
                 <ErrorBoundary>
-                <li key={this.props.item.id} onClick={this.props.displayFunc} style={this.props.size === 'desktop' ? LiStyle : LiStyleMobile}>
-                    <img style={this.props.size === 'desktop' ? ImgStyle : ImgStyleMobile}src={this.props.item.item} alt={this.props.item.alt} />
-                    <p>{this.props.item.title}</p>
-                </li>
-            </ErrorBoundary>
+                    <li key={this.props.item.id} onClick={this.props.displayFunc} style={this.props.size === 'desktop' ? LiStyle : LiStyleMobile}>
+                        <img style={this.props.size === 'desktop' ? ImgStyle : ImgStyleMobile} src={this.props.item.item} alt={this.props.item.alt} />
+                        <p style={TitleStyle}>{this.props.item.title}</p>
+                    </li>
+                </ErrorBoundary>
             </Link>
 
         )
@@ -37,6 +37,10 @@ class Item extends React.Component<Props, State> {
 }
 
 export default Item;
+
+const TitleStyle: CSSProperties = {
+    textAlign: 'center'
+}
 
 const LiStyle: CSSProperties = {
     display: 'flex',

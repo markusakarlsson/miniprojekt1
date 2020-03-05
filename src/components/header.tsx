@@ -3,6 +3,7 @@ import React, { CSSProperties } from 'react';
 
 interface Props {
     size: string;
+    overflow: boolean;
 }
 
 interface State {
@@ -28,11 +29,18 @@ class Header extends React.Component<Props, State> {
     }
 
     render() {
-        return(
-            <header style={this.styleHeaderSize()}>
-                <h1>SPACE PROJECT</h1>
-            </header>
-        )
+        if(!this.props.overflow) {
+            
+            return(
+                <header style={this.styleHeaderSize()}>
+                    <h1>SPACE PROJECT</h1>
+                </header>
+            )
+        } else {
+            return (
+                null
+            )
+        }
     }
 }
 

@@ -6,10 +6,11 @@ import { Link } from 'react-router-dom';
 
 interface Props {
     size: string
+    sidebarToggle: () => void;
 }
 
 interface State {
-    toggle: boolean
+
 }
 
 
@@ -18,17 +19,9 @@ class Sidebar extends React.Component<Props, State> {
     constructor(props: Props) {
         super(props)
 
-        this.state = {
-            toggle: false
-        }
-        this.clickSidebar = this.clickSidebar.bind(this)
     }
 
-    clickSidebar(e: React.MouseEvent<HTMLDivElement, MouseEvent>) {
-        this.setState(state => ({
-            toggle: !state.toggle
-        }))
-    }
+
 
 
     styleSidebarSize() {
@@ -52,27 +45,15 @@ class Sidebar extends React.Component<Props, State> {
     }
     render() {
         return (
-            <>
-                <Link to="/images">
+            <Link to="/images" onClick={this.props.sidebarToggle}>
                     <aside>
-                        <div onClick={this.clickSidebar} style={this.styleSidebarSize()}>
+                        <div style={this.styleSidebarSize()}>
                             <div className='icon-move'>
                                 <i style={this.styleIconSize()} className="fas fa-rocket"></i>
                         </div>
                     </div>
                 </aside>
             </Link>
-
-                {
-            this.state.toggle && (
-                <Link to="">
-                    <div style={displayStyle}>
-                        <SidebarDiv size={this.props.size} />
-                    </div>
-                </Link>
-            )
-        }
-            </>
         )
     }
 }
@@ -81,7 +62,6 @@ export default Sidebar
 
 
 const displayStyle: CSSProperties = {
-    marginTop: '-5rem',
     height: '100%',
     width: '100%',
     backgroundColor: 'rgb(236, 236, 236)',

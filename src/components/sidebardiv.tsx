@@ -58,11 +58,9 @@ class SidebarDiv extends React.Component<Props, State> {
 
     render() {
         return (
-            <Link to="">
             <div style={DisplayStyle}>
                 <Items size={this.props.size} items={this.state.allItems} />
             </div>
-            </Link>
 
         )
     }
@@ -78,5 +76,6 @@ const DisplayStyle: CSSProperties = {
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
+    backgroundColor: 'rgba(0, 0, 0, 0.7)'
 
 }
