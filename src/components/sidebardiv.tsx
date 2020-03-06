@@ -14,8 +14,11 @@ interface Props {
 
 interface State {
     allItems: AllItems[]
+
 }
 class SidebarDiv extends React.Component<Props, State> {
+    private APIKey: string = "hTSax0xjObcGX6GTkOEnKgLLmEALMhW0vuB7We8v";
+    
     constructor(props: Props) {
         super(props)
         this.state = {
@@ -55,6 +58,11 @@ class SidebarDiv extends React.Component<Props, State> {
         }
     }
 
+
+
+    componentDidMount() {
+        console.log("did mount")
+    }
 
     render() {
         return (
