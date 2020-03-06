@@ -35,6 +35,7 @@ class Item extends React.Component<Props, State> {
         return (
             <Link to={"/images/" + this.props.item.title} style={LiStyleDesktop}>
                 <ErrorBoundary>
+                    {/* {(null as any).test} */}
                     <li key={this.props.item.id} onClick={this.props.displayFunc} style={this.styleItemSize()}>
                         <p style={TitleStyle}>{this.props.item.title}</p>
                         <img style={this.props.size === 'desktop' ? ImgStyle : ImgStyleMobile} src={this.props.item.item} alt={this.props.item.alt} />

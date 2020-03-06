@@ -64,7 +64,7 @@ class Items extends React.Component<Props, State> {
                 <ErrorBoundary>
                     <>
                         {console.log(this.state.index)};
-                <DisplayImg size={this.props.size} item={this.props.items[Number(this.state.index) - 1]} displayNone={this.displayNone} />
+                        <DisplayImg size={this.props.size} item={this.props.items[Number(this.state.index) - 1]} displayNone={this.displayNone} />
                     </>
                 </ErrorBoundary>
             )

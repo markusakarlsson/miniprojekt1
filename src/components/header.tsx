@@ -13,12 +13,10 @@ interface State {
 class Header extends React.Component<Props, State> {
     constructor(props: Props) {
         super(props)
-
-        this.styleHeaderSize = this.styleHeaderSize.bind(this)
     }
 
 
-    styleHeaderSize() {
+    get styleHeaderSize() {
         if(this.props.size === 'desktop') {
             return HeaderStyle
         } else if(this.props.size === 'tablet') {
@@ -32,7 +30,7 @@ class Header extends React.Component<Props, State> {
         if(!this.props.overflow) {
             
             return(
-                <header style={this.styleHeaderSize()}>
+                <header style={this.styleHeaderSize}>
                     <h1>SPACE PROJECT</h1>
                 </header>
             )

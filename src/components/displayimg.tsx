@@ -2,6 +2,7 @@ import React, { CSSProperties } from 'react';
 import { Link } from 'react-router-dom';
 
 import { AllItems } from './sidebardiv';
+import ErrorBoundary from '../errorboundary';
 
 interface Props {
     item: AllItems
