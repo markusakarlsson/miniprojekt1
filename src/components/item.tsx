@@ -32,11 +32,11 @@ class Item extends React.Component<Props, State> {
         }
     }
 
+    /* {(null as any).test} */
     render() {
         return (
             <Link to={"/images/" + this.props.dataImg.id} style={LiStyleDesktop}>
                 <ErrorBoundary>
-                    {/* {(null as any).test} */}
                     <li key={this.props.dataImg.id}  
                     onClick={this.props.displayFunc}
                      style={this.styleItemSize()}>

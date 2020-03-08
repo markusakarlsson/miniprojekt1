@@ -40,6 +40,7 @@ interface Props {
 interface State {
     allItems: AllItems[]
     loaded: boolean
+    sol: number
     items: []
     data: []
     dataId: string
@@ -59,6 +60,7 @@ class SidebarDiv extends React.Component<Props, State> {
             loaded: false,
             items: [],
             data: [],
+            sol: 2539,
             dataId: '',
             allItems: [{
                 id: '1',
@@ -116,12 +118,11 @@ class SidebarDiv extends React.Component<Props, State> {
             });
             return cameraExists
         })
-        // console.log(filterdList);
+        console.log(filterdList);
     }
 
     async loadImages(filterdList: any) {
-        const response = await fetch('https://api.nasa.gov/mars-photos/api/v1/rovers/' + 'curiosity/photos?sol=1&page=1&camera=' + this.camera + "&api_key=" + this.APIKey)
-        console.log('https://api.nasa.gov/mars-photos/api/v1/rovers' + 'curiosity/photos?sol=1&page=1&camera=' + this.camera + "&api_key=" + this.APIKey);
+        const response = await fetch('https://api.nasa.gov/mars-photos/api/v1/rovers/' + 'curiosity/photos?sol=2539&page=1&camera=' + this.camera + "&api_key=" + this.APIKey);
 
         const data = await response.json()
         console.log("data", data)
