@@ -4,12 +4,35 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { AnyNaptrRecord } from 'dns';
 
+
+
+
+interface data {
+    id: number
+    sol: number
+    img_src: string
+    earth_date: string
+    cameras: {
+        id: number
+        name: string
+        rover_id: number
+        full_name: string
+    }
+    _proto_: any
+
+}
+
+
+
+
+
 export interface AllItems {
     id: string
     title: string
     item: string
     alt: string
 }
+
 interface Props {
     size: string
 }
@@ -18,6 +41,8 @@ interface State {
     allItems: AllItems[]
     loaded: boolean
     items: []
+    data: []
+    dataId: string
 }
 
 class SidebarDiv extends React.Component<Props, State> {
@@ -33,6 +58,8 @@ class SidebarDiv extends React.Component<Props, State> {
         this.state = {
             loaded: false,
             items: [],
+            data: [],
+            dataId: '',
             allItems: [{
                 id: '1',
                 title: 'mars',
@@ -95,25 +122,29 @@ class SidebarDiv extends React.Component<Props, State> {
     async loadImages(filterdList: any) {
         const response = await fetch('https://api.nasa.gov/mars-photos/api/v1/rovers/' + 'curiosity/photos?sol=1&page=1&camera=' + this.camera + "&api_key=" + this.APIKey)
         console.log('https://api.nasa.gov/mars-photos/api/v1/rovers' + 'curiosity/photos?sol=1&page=1&camera=' + this.camera + "&api_key=" + this.APIKey);
-        
+
         const data = await response.json()
-        console.log(data)
+        console.log("data", data)
+        console.log("data.photos", data.photos)
+        console.log("data.photos", data.photos)
+
+        this.setState({
+            data: data.photos,
+            dataId: data.id
+        })
+
     }
 
-    
 
 
 
-    // this.setState({
-    //     items: data
-    // })
 
 
 
     render() {
         return (
             <div style={DisplayStyle}>
-                <Items size={this.props.size} items={this.state.allItems} />
+                <Items size={this.props.size} data={this.state.data} items={this.state.allItems} dataId={this.state.dataId} />
             </div>
 
         )
@@ -131,5 +162,4 @@ const DisplayStyle: CSSProperties = {
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: 'rgba(0, 0, 0, 0.7)'
-
 }

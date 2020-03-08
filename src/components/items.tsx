@@ -9,6 +9,8 @@ import { AllItems } from './sidebardiv';
 interface Props {
     items: AllItems[]
     size: string
+    data: []
+    dataId: string
 }
 
 interface State {
@@ -30,10 +32,10 @@ class Items extends React.Component<Props, State> {
     }
 
 
-    displayImg(id: string) {
+    displayImg(dataId: string) {
         this.setState(state => ({
             toggle: true,
-            index: id,
+            index: dataId,
         }))
     }
 
@@ -51,7 +53,9 @@ class Items extends React.Component<Props, State> {
                     <>
                         <div>
                             <ul style={this.props.size === 'desktop' ? UlStyle : UlStyleMobile}>
-                                {this.props.items.map((item) => <Item size={this.props.size} displayFunc={() => this.displayImg(item.id)} item={item} />)}
+                                {this.props.data.map((data) => <Item size={this.props.size} displayFunc={() => this.displayImg(this.props.dataId)} dataImg={data} />)}
+                                {/* displayFunc={() => this.displayImg(data.id)} */}
+                                }
                             </ul>
                         </div>
                         }
@@ -64,7 +68,7 @@ class Items extends React.Component<Props, State> {
                 <ErrorBoundary>
                     <>
                         {console.log(this.state.index)};
-                        <DisplayImg size={this.props.size} item={this.props.items[Number(this.state.index) - 1]} displayNone={this.displayNone} />
+                        <DisplayImg size={this.props.size} data={this.props.data[Number(this.state.index)]} dataId={this.state.index} displayNone={this.displayNone} />
                     </>
                 </ErrorBoundary>
             )

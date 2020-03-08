@@ -32,7 +32,6 @@ class MainComponent extends React.Component<Props, State> {
 
 
     render() {
-        console.log(this.props.size);
         return (
             <>
                 <main style={this.props.size === 'desktop' ? MainStyle : MainStyleMobile} >
