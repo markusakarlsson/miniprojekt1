@@ -17,7 +17,10 @@ interface State {
 class Item extends React.Component<Props, State> {
     constructor(props: Props) {
         super(props)
-
+        
+        const image = new Image()
+        image.onload = () => console.log('image is loaded')
+        image.src = props.dataImg
     }
 
     styleItemSize() {

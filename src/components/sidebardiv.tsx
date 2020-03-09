@@ -83,8 +83,14 @@ class SidebarDiv extends React.Component<Props, State> {
 
     }
 
+    
+    timer: any
+    handleSliderChanged = () => {
+        clearTimeout(this.timer)
+        this.timer = setTimeout(() => {
 
-
+        }, 1000)
+    }
 
 
 

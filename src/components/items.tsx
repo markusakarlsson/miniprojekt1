@@ -46,7 +46,8 @@ class Items extends React.Component<Props, State> {
     }
 
     render() {
-
+        console.log(this.state.index)
+        
         if (!this.state.toggle) {
             return (
                 <ErrorBoundary>
@@ -54,7 +55,7 @@ class Items extends React.Component<Props, State> {
                         <div>
                         <input style={RangeInput} id="typeinp" type="range" min="0" max="5" defaultValue="3" step="1"/>
                             <ul style={this.props.size === 'desktop' ? UlStyle : UlStyleMobile}>
-                                {this.props.data.map((data) => <Item size={this.props.size} displayFunc={() => this.displayImg(this.props.data.length)} dataImg={data} />)}
+                                {this.props.data.map((data, index) => <Item size={this.props.size} displayFunc={() => this.displayImg(index)} dataImg={data} />)}
                             </ul>
                         </div>
                 </>
