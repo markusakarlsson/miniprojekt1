@@ -5,6 +5,9 @@ import axios from 'axios';
 import { AnyNaptrRecord } from 'dns';
 import { PhotoManifestData, ManifestData, PhotoData } from '../apiTypes';
 
+
+import { PulseSpinner } from "react-spinners-kit";
+
 interface Props {
     size: string
 }
@@ -88,9 +91,15 @@ class SidebarDiv extends React.Component<Props, State> {
 
     render() {
         if (this.state.isLoading) {
-            return null
+            {console.log("spinner")}
+            return(
+                <>
+                <div style={SpinnerStyle}>
+                <PulseSpinner z-index="3000"/>
+                </div>
+                </>
+            )
         }
-
         return (
             <div style={DisplayStyle}>
                 <Items size={this.props.size} data={this.state.data} />
@@ -98,9 +107,8 @@ class SidebarDiv extends React.Component<Props, State> {
 
         )
     }
-
-
 }
+
 
 export default SidebarDiv;
 
@@ -111,5 +119,20 @@ const DisplayStyle: CSSProperties = {
     justifyContent: 'center',
     alignItems: 'center',
     flexDirection: 'row',
-    backgroundColor: 'rgba(0, 0, 0, 0.7)'
+    backgroundColor: 'rgba(0,0,0,0.5)',
+    // backgroundImage:
+    //     'url(https://images.unsplash.com/photo-1435224668334-0f82ec57b605?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2850&q=80)',
+    // backgroundPosition: 'center',
+    // backgroundRepeat: 'no-repeat',
+
+}
+
+const SpinnerStyle: CSSProperties = {
+    zIndex: 3000,
+    height: '100%',
+    width: '100%',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+
 }

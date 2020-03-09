@@ -3,6 +3,8 @@ import Item from './item';
 import DisplayImg from './displayimg';
 import ErrorBoundary from './../errorboundary';
 
+
+
 import { PhotoData } from '../apiTypes';
 
 
@@ -52,10 +54,9 @@ class Items extends React.Component<Props, State> {
                         <div>
                         <input style={RangeInput} id="typeinp" type="range" min="0" max="5" defaultValue="3" step="1"/>
                             <ul style={this.props.size === 'desktop' ? UlStyle : UlStyleMobile}>
-                                {this.props.data.map((data) => <Item size={this.props.size} displayFunc={() => this.displayImg(this.props.data.id)} dataImg={data} />)}
+                                {this.props.data.map((data) => <Item size={this.props.size} displayFunc={() => this.displayImg(this.props.data.length)} dataImg={data} />)}
                             </ul>
                         </div>
-                        }
                 </>
                 </ErrorBoundary>
 
