@@ -5,9 +5,11 @@ import { AllItems } from './sidebardiv';
 import ErrorBoundary from '../errorboundary';
 
 interface Props {
-    item: AllItems
+    // item: AllItems
     displayNone: () => void;
     size: string
+    data: any
+    dataId: string
 }
 
 interface State {
@@ -23,9 +25,9 @@ class DisplayImg extends React.Component<Props, State> {
     render() {
         return (
             <Link to={"/images"}>
-                <div style={BigImgDivStyle} onClick={this.props.displayNone} key={this.props.item.id}>
-                    <p style={PStyle}>{this.props.item.title}</p>
-                    <img style={BigImgStyle} src={this.props.item.item} alt={this.props.item.alt} />
+                <div style={BigImgDivStyle} onClick={this.props.displayNone} key={this.props.dataId}>
+                    <p style={PStyle}>{this.props.dataId}</p>
+                    <img style={BigImgStyle} src={this.props.data.img_src} alt={this.props.dataId} />
                 </div>
             </Link>
         )

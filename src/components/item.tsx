@@ -6,9 +6,10 @@ import { AllItems } from './sidebardiv';
 
 
 interface Props {
-    item: AllItems
+    // item: AllItems
     displayFunc: () => void;
     size: string
+    dataImg: any
 }
 
 interface State {
@@ -31,14 +32,16 @@ class Item extends React.Component<Props, State> {
         }
     }
 
+    /* {(null as any).test} */
     render() {
         return (
-            <Link to={"/images/" + this.props.item.title} style={LiStyleDesktop}>
+            <Link to={"/images/" + this.props.dataImg.id} style={LiStyleDesktop}>
                 <ErrorBoundary>
-                    {/* {(null as any).test} */}
-                    <li key={this.props.item.id} onClick={this.props.displayFunc} style={this.styleItemSize()}>
-                        <p style={TitleStyle}>{this.props.item.title}</p>
-                        <img style={this.props.size === 'desktop' ? ImgStyle : ImgStyleMobile} src={this.props.item.item} alt={this.props.item.alt} />
+                    <li key={this.props.dataImg.id}  
+                    onClick={this.props.displayFunc}
+                     style={this.styleItemSize()}>
+                        <p style={TitleStyle}>{this.props.dataImg.id}</p>
+                        <img style={this.props.size === 'desktop' ? ImgStyle : ImgStyleMobile} src={this.props.dataImg.img_src} alt={this.props.dataImg.id} />
                     </li>
                 </ErrorBoundary>
             </Link>

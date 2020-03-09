@@ -46,8 +46,6 @@ class App extends React.Component<Props, State> {
   }
   
   render() {
-
-    console.log(this.state.size)
     return (
       <ErrorBoundary>
         <BrowserRouter>
