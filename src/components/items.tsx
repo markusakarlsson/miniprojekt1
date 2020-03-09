@@ -3,19 +3,17 @@ import Item from './item';
 import DisplayImg from './displayimg';
 import ErrorBoundary from './../errorboundary';
 
-import { AllItems } from './sidebardiv';
+import { PhotoData } from '../apiTypes';
 
 
 interface Props {
-    items: AllItems[]
     size: string
-    data: []
-    dataId: string
+    data: PhotoData[]
 }
 
 interface State {
     toggle: boolean
-    index: string
+    index: number
 }
 
 class Items extends React.Component<Props, State> {
@@ -24,7 +22,7 @@ class Items extends React.Component<Props, State> {
 
         this.state = {
             toggle: false,
-            index: ''
+            index: 0
         }
 
         this.displayImg = this.displayImg.bind(this)
@@ -32,10 +30,10 @@ class Items extends React.Component<Props, State> {
     }
 
 
-    displayImg(dataId: string) {
+    displayImg(id: number) {
         this.setState(state => ({
             toggle: true,
-            index: dataId,
+            index: id,
         }))
     }
 
@@ -52,10 +50,9 @@ class Items extends React.Component<Props, State> {
                 <ErrorBoundary>
                     <>
                         <div>
+                        <input style={RangeInput} id="typeinp" type="range" min="0" max="5" defaultValue="3" step="1"/>
                             <ul style={this.props.size === 'desktop' ? UlStyle : UlStyleMobile}>
-                                {this.props.data.map((data) => <Item size={this.props.size} displayFunc={() => this.displayImg(this.props.dataId)} dataImg={data} />)}
-                                {/* displayFunc={() => this.displayImg(data.id)} */}
-                                }
+                                {this.props.data.map((data) => <Item size={this.props.size} displayFunc={() => this.displayImg(this.props.data.id)} dataImg={data} />)}
                             </ul>
                         </div>
                         }
@@ -67,8 +64,8 @@ class Items extends React.Component<Props, State> {
             return (
                 <ErrorBoundary>
                     <>
-                        {console.log(this.state.index)};
-                        <DisplayImg size={this.props.size} data={this.props.data[Number(this.state.index)]} dataId={this.state.index} displayNone={this.displayNone} />
+                        {console.log("STATE",this.state.index)}
+                        <DisplayImg size={this.props.size} photoData={this.props.data[this.state.index]} displayNone={this.displayNone} />
                     </>
                 </ErrorBoundary>
             )
@@ -81,6 +78,7 @@ class Items extends React.Component<Props, State> {
 export default Items;
 
 const UlStyle: CSSProperties = {
+    paddingTop: '5rem',
     height: '100%',
     display: 'flex',
     justifyContent: 'center',
@@ -96,4 +94,10 @@ const UlStyleMobile: CSSProperties = {
     alignItems: 'center',
     listStyleType: 'none',
     flexDirection: 'column',
+}
+
+const RangeInput: CSSProperties = {
+    top: 10,
+    right: 0,
+    position: 'fixed',
 }

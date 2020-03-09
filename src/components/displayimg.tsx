@@ -1,15 +1,13 @@
 import React, { CSSProperties } from 'react';
 import { Link } from 'react-router-dom';
 
-import { AllItems } from './sidebardiv';
+import { PhotoManifestData, ManifestData, PhotoData } from '../apiTypes';
 import ErrorBoundary from '../errorboundary';
 
 interface Props {
-    // item: AllItems
     displayNone: () => void;
     size: string
-    data: any
-    dataId: string
+    photoData: PhotoData
 }
 
 interface State {
@@ -25,9 +23,9 @@ class DisplayImg extends React.Component<Props, State> {
     render() {
         return (
             <Link to={"/images"}>
-                <div style={BigImgDivStyle} onClick={this.props.displayNone} key={this.props.dataId}>
-                    <p style={PStyle}>{this.props.dataId}</p>
-                    <img style={BigImgStyle} src={this.props.data.img_src} alt={this.props.dataId} />
+                <div style={BigImgDivStyle} onClick={this.props.displayNone} key={this.props.photoData.id}>
+                    <p style={PStyle}>{this.props.photoData.id}</p>
+                    <img style={BigImgStyle} src={this.props.photoData.img_src} alt={this.props.photoData.earth_date} />
                 </div>
             </Link>
         )
