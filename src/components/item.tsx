@@ -2,11 +2,9 @@ import React, { CSSProperties } from 'react';
 import ErrorBoundary from './../errorboundary';
 import { Link } from 'react-router-dom'
 
-import { AllItems } from './sidebardiv';
 
 
 interface Props {
-    // item: AllItems
     displayFunc: () => void;
     size: string
     dataImg: any
