@@ -16,7 +16,7 @@ interface State {
     isLoading: boolean
     sol: number
     items: []
-    data: PhotoData[]    
+    data: PhotoData[]
     filteredList: PhotoManifestData[]
     value: number
 }
@@ -68,7 +68,7 @@ class SidebarDiv extends React.Component<Props, State> {
 
     async loadImages() {
         this.setState({ isLoading: true })
-        
+
         const { filteredList } = this.state
         // filteredList[0].sol
         const response = await fetch('https://api.nasa.gov/mars-photos/api/v1/rovers/' + 'curiosity/photos?sol=' + this.state.sol + '&page=1&camera=' + this.camera + "&api_key=" + this.APIKey);
@@ -86,38 +86,34 @@ class SidebarDiv extends React.Component<Props, State> {
 
     }
 
-    
+
     timer: any
     handleSliderChanged = (event: React.ChangeEvent<HTMLInputElement>) => {
-        this.setState({value: Number(event.target.value)})
-        this.changeSol()
         clearTimeout(this.timer)
+        this.setState({ value: Number(event.target.value) })
+        this.setState({ sol: this.state.filteredList[this.state.value].sol })
         this.timer = setTimeout(() => {
-        }, 1000)
+            this.loadImages()
+            console.log("funkar detta?")
+        }, 3000)
     }
 
-
-    changeSol = () => {
-        this.setState({sol: this.state.filteredList[this.state.value].sol})
-        this.loadImages()
-        console.log("heheheh", this.state.filteredList[this.state.value].sol) 
-    }
 
     render() {
         if (this.state.isLoading) {
-            {console.log("spinner")}
-            return(
+            { console.log("spinner") }
+            return (
                 <>
-                <div style={SpinnerStyle}>
-                <PulseSpinner z-index="3000"/>
-                </div>
+                    <div style={SpinnerStyle}>
+                        <PulseSpinner z-index="3000" />
+                    </div>
                 </>
             )
         }
         return (
             <div style={DisplayStyle}>
-            <h3 style={H3Style}>{this.state.value}</h3>
-            
+                <h3 style={H3Style}>{this.state.value}</h3>
+
                 <Items handleSliderChanged={this.handleSliderChanged} defaulValue={this.state.value} max={this.state.filteredList.length} size={this.props.size} data={this.state.data} />
             </div>
         )
