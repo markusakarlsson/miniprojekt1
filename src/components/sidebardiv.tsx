@@ -18,6 +18,7 @@ interface State {
     items: []
     data: PhotoData[]    
     filteredList: PhotoManifestData[]
+    value: number
 }
 
 class SidebarDiv extends React.Component<Props, State> {
@@ -34,8 +35,9 @@ class SidebarDiv extends React.Component<Props, State> {
             isLoading: true,
             items: [],
             data: [],
-            sol: 2539,
-            filteredList: []
+            sol: 1,
+            filteredList: [],
+            value: 0,
         }
     }
 
@@ -69,31 +71,37 @@ class SidebarDiv extends React.Component<Props, State> {
         
         const { filteredList } = this.state
         // filteredList[0].sol
-        const response = await fetch('https://api.nasa.gov/mars-photos/api/v1/rovers/' + 'curiosity/photos?sol=2539&page=1&camera=' + this.camera + "&api_key=" + this.APIKey);
+        const response = await fetch('https://api.nasa.gov/mars-photos/api/v1/rovers/' + 'curiosity/photos?sol=' + this.state.sol + '&page=1&camera=' + this.camera + "&api_key=" + this.APIKey);
 
         const data = await response.json()
         console.log("data", data)
         console.log("data.photos", data.photos)
-        console.log("data.photos", data.photos)
+        console.log(this.state.filteredList.length)
 
         this.setState({
             data: data.photos,
-            isLoading: false
+            isLoading: false,
+            filteredList: filteredList,
         })
 
     }
 
     
     timer: any
-    handleSliderChanged = () => {
+    handleSliderChanged = (event: React.ChangeEvent<HTMLInputElement>) => {
+        this.setState({value: Number(event.target.value)})
+        this.changeSol()
         clearTimeout(this.timer)
         this.timer = setTimeout(() => {
-
         }, 1000)
     }
 
 
-
+    changeSol = () => {
+        this.setState({sol: this.state.filteredList[this.state.value].sol})
+        this.loadImages()
+        console.log("heheheh", this.state.filteredList[this.state.value].sol) 
+    }
 
     render() {
         if (this.state.isLoading) {
@@ -108,9 +116,10 @@ class SidebarDiv extends React.Component<Props, State> {
         }
         return (
             <div style={DisplayStyle}>
-                <Items size={this.props.size} data={this.state.data} />
+            <h3 style={H3Style}>{this.state.value}</h3>
+            
+                <Items handleSliderChanged={this.handleSliderChanged} defaulValue={this.state.value} max={this.state.filteredList.length} size={this.props.size} data={this.state.data} />
             </div>
-
         )
     }
 }
@@ -124,8 +133,9 @@ const DisplayStyle: CSSProperties = {
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    flexDirection: 'row',
+    flexDirection: 'column',
     backgroundColor: 'rgba(0,0,0,0.5)',
+    minHeight: '100vh',
     // backgroundImage:
     //     'url(https://images.unsplash.com/photo-1435224668334-0f82ec57b605?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2850&q=80)',
     // backgroundPosition: 'center',
@@ -141,4 +151,20 @@ const SpinnerStyle: CSSProperties = {
     justifyContent: 'center',
     alignItems: 'center',
 
+}
+
+const RangeInput: CSSProperties = {
+    height: '100%',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: '80rem',
+    paddingTop: '2rem',
+    zIndex: 3555,
+    // flexGrow: '1',
+}
+
+const H3Style: CSSProperties = {
+    color: 'white',
+    marginTop: '7rem'
 }

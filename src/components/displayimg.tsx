@@ -24,7 +24,7 @@ class DisplayImg extends React.Component<Props, State> {
         return (
             <Link to={"/images"}>
                 <div style={BigImgDivStyle} onClick={this.props.displayNone} key={this.props.photoData.id}>
-                    <p style={PStyle}>{this.props.photoData.id}</p>
+                    <p style={PStyle}>{this.props.photoData.earth_date}</p>
                     <img style={BigImgStyle} src={this.props.photoData.img_src} alt={this.props.photoData.earth_date} />
                 </div>
             </Link>
@@ -40,6 +40,7 @@ const PStyle: CSSProperties = {
     position: 'fixed',
     top: 0,
     fontSize: '2rem',
+    textDecoration: 'none'
 }
 
 
@@ -51,6 +52,7 @@ const BigImgDivStyle: CSSProperties = {
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
+    textDecoration: 'none',
 }
 
 const BigImgStyle: CSSProperties = {

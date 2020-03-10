@@ -11,6 +11,9 @@ import { PhotoData } from '../apiTypes';
 interface Props {
     size: string
     data: PhotoData[]
+    handleSliderChanged: (event: React.ChangeEvent<HTMLInputElement>) => void;
+    max: number
+    defaulValue: number
 }
 
 interface State {
@@ -46,14 +49,12 @@ class Items extends React.Component<Props, State> {
     }
 
     render() {
-        console.log(this.state.index)
-        
         if (!this.state.toggle) {
             return (
                 <ErrorBoundary>
                     <>
                         <div>
-                        <input style={RangeInput} id="typeinp" type="range" min="0" max="5" defaultValue="3" step="1"/>
+                        <input defaultValue={this.props.defaulValue} style={RangeInput} onChange={this.props.handleSliderChanged} id="typeinp" type="range" min="0" max={this.props.max} step="1"/>
                             <ul style={this.props.size === 'desktop' ? UlStyle : UlStyleMobile}>
                                 {this.props.data.map((data, index) => <Item size={this.props.size} displayFunc={() => this.displayImg(index)} dataImg={data} />)}
                             </ul>
@@ -66,7 +67,6 @@ class Items extends React.Component<Props, State> {
             return (
                 <ErrorBoundary>
                     <>
-                        {console.log("STATE",this.state.index)}
                         <DisplayImg size={this.props.size} photoData={this.props.data[this.state.index]} displayNone={this.displayNone} />
                     </>
                 </ErrorBoundary>
@@ -99,7 +99,11 @@ const UlStyleMobile: CSSProperties = {
 }
 
 const RangeInput: CSSProperties = {
-    top: 10,
-    right: 0,
-    position: 'fixed',
+    height: '100%',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: '80rem',
+    marginTop: '8rem'
+    // flexGrow: '1'
 }

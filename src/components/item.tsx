@@ -41,7 +41,7 @@ class Item extends React.Component<Props, State> {
                     <li key={this.props.dataImg.id}  
                     onClick={this.props.displayFunc}
                      style={this.styleItemSize()}>
-                        <p style={TitleStyle}>{this.props.dataImg.id}</p>
+                        <p style={TitleStyle}>{this.props.dataImg.earth_date}</p>
                         <img style={this.props.size === 'desktop' ? ImgStyle : ImgStyleMobile} src={this.props.dataImg.img_src} alt={this.props.dataImg.id} />
                     </li>
                 </ErrorBoundary>
