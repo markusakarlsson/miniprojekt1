@@ -18,7 +18,7 @@ class Item extends React.Component<Props, State> {
     constructor(props: Props) {
         super(props)
         const image = new Image()
-        image.onload = () => this.loaded
+        image.onload = () =>  this.loaded 
         image.src = props.dataImg.img_src
         this.state = {
             loaded: false
@@ -31,6 +31,7 @@ class Item extends React.Component<Props, State> {
         })
         console.log("Done loaded!")
     }
+
 
     styleItemSize() {
         if (this.props.size === 'desktop') {
@@ -59,7 +60,7 @@ class Item extends React.Component<Props, State> {
             )
         } else {
             return (
-                <div  style={SpinnerStyle}>
+                <div style={SpinnerStyle}>
                     <RotateSpinner z-index="3000" />
                 </div>
             )
