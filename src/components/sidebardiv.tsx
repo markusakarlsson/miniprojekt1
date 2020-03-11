@@ -95,7 +95,7 @@ class SidebarDiv extends React.Component<Props, State> {
         this.timer = setTimeout(() => {
             this.loadImages()
             console.log("funkar detta?")
-        }, 3000)
+        }, 2000)
     }
 
 
@@ -105,16 +105,17 @@ class SidebarDiv extends React.Component<Props, State> {
             return (
                 <>
                     <div style={SpinnerStyle}>
-                        <PulseSpinner z-index="3000" />
+                        <PulseSpinner />
                     </div>
                 </>
             )
         }
         return (
             <div style={DisplayStyle}>
-                <h3 style={H3Style}>{this.state.value}</h3>
-
-                <Items handleSliderChanged={this.handleSliderChanged} defaulValue={this.state.value} max={this.state.filteredList.length} size={this.props.size} data={this.state.data} />
+                <h3 style={H3Style}>Sol (day on Mars) {this.state.value}</h3>
+                <div style={RangeInput}>
+                    <Items handleSliderChanged={this.handleSliderChanged} defaulValue={this.state.value} max={this.state.filteredList.length} size={this.props.size} data={this.state.data} />
+                </div>
             </div>
         )
     }
@@ -146,7 +147,7 @@ const SpinnerStyle: CSSProperties = {
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-
+    minHeight: '100vh',
 }
 
 const RangeInput: CSSProperties = {
