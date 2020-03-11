@@ -45,6 +45,7 @@ class Item extends React.Component<Props, State> {
 
     /* {(null as any).test} */
     render() {
+        if (this.state.loaded) {
             return (
                 <Link to={"/images/" + this.props.dataImg.id} style={LiStyleDesktop}>
                     <ErrorBoundary>
@@ -56,16 +57,15 @@ class Item extends React.Component<Props, State> {
                         </li>
                     </ErrorBoundary>
                 </Link>
-        // if (this.state.loaded) {
-        //     )
-        // } else {
-        //     return (
-        //         <div style={SpinnerStyle}>
-        //             <RotateSpinner z-index="3000" />
-        //         </div>
+            )
+        } else {
+            return (
+                <div style={SpinnerStyle}>
+                    <RotateSpinner z-index="3000" />
+                </div>
             )
 
-        // }
+        }
     }
 }
 
