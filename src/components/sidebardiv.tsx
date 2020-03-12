@@ -6,7 +6,7 @@ import { AnyNaptrRecord } from 'dns';
 import { PhotoManifestData, ManifestData, PhotoData } from '../apiTypes';
 
 
-import { PulseSpinner } from "react-spinners-kit";
+import { MetroSpinner } from "react-spinners-kit";
 
 interface Props {
     size: string
@@ -94,7 +94,6 @@ class SidebarDiv extends React.Component<Props, State> {
         this.setState({ sol: this.state.filteredList[this.state.value].sol })
         this.timer = setTimeout(() => {
             this.loadImages()
-            console.log("funkar detta?")
         }, 2000)
     }
 
@@ -105,7 +104,7 @@ class SidebarDiv extends React.Component<Props, State> {
             return (
                 <>
                     <div style={SpinnerStyle}>
-                        <PulseSpinner />
+                        <MetroSpinner />
                     </div>
                 </>
             )

@@ -31,7 +31,7 @@ class Header extends React.Component<Props, State> {
             
             return(
                 <header style={this.styleHeaderSize}>
-                    <h1>SPACE PROJECT</h1>
+                    <h1>SPACE APP</h1>
                 </header>
             )
         } else {
