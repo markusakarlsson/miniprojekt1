@@ -23,15 +23,14 @@ class Item extends React.Component<Props, State> {
     const image = new Image();
     image.onload = () => this.doneLoading()
     image.src = props.dataImg.img_src;
-    
+
     this.doneLoading = this.doneLoading.bind(this)
   }
 
   doneLoading() {
     this.setState(state => ({
       isLoading: !state.isLoading,
-  }))
-  console.log("NU ska spinners försvinna")
+    }))
   }
 
   styleItemSize() {
@@ -48,30 +47,30 @@ class Item extends React.Component<Props, State> {
   render() {
     if (!this.state.isLoading) {
       return (
-      <Link to={"/images/" + this.props.dataImg.id} style={LiStyleDesktop}>
-      <ErrorBoundary>
-      <li
-        key={this.props.dataImg.id}
-        onClick={this.props.displayFunc}
-        style={this.styleItemSize()}>
-        <p style={TitleStyle}>{this.props.dataImg.id}</p>
-        <img
-          style={
-            this.props.size === "desktop" ? ImgStyle : ImgStyleMobile
-          }
-          src={this.props.dataImg.img_src}
-          alt={this.props.dataImg.id}
-        />
-      </li>
-    </ErrorBoundary>
-  </Link>
-    )
+        <Link to={"/images/" + this.props.dataImg.id} style={LiStyleDesktop}>
+          <ErrorBoundary>
+            <li
+              key={this.props.dataImg.id}
+              onClick={this.props.displayFunc}
+              style={this.styleItemSize()}>
+              <p style={TitleStyle}>{this.props.dataImg.id}</p>
+              <img
+                style={
+                  this.props.size === "desktop" ? ImgStyle : ImgStyleMobile
+                }
+                src={this.props.dataImg.img_src}
+                alt={this.props.dataImg.id}
+              />
+            </li>
+          </ErrorBoundary>
+        </Link>
+      )
     } else {
-            return (
-              <li key={this.props.dataImg.id} style={LiStyleDesktop}>
-                <MetroSpinner />
-              </li> 
-            )
+      return (
+        <li key={this.props.dataImg.id} style={LiStyleDesktop}>
+          <MetroSpinner />
+        </li>
+      )
     }
   }
 }

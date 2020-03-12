@@ -38,7 +38,6 @@ class Footer extends React.Component<Props, State> {
 
     render() {
         if(!this.props.overflow) {
-
             return (
                 <footer style={this.styleFooterSize()}>
                 <p><img style={this.styleFooterIconSize()} src='./../assets/info-solid.svg' alt='info' /></p>

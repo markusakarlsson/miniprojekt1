@@ -24,7 +24,7 @@ class App extends React.Component<Props, State> {
   }
 
   onWindowLoad() {
-
+    this.handleWindowsResize()
   }
   
   handleWindowsResize = () => {

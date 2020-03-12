@@ -23,8 +23,6 @@ class Sidebar extends React.Component<Props, State> {
     }
 
 
-
-
     styleSidebarSize() {
         if(this.props.size === 'desktop') {
             return SidebarStyleDesktop
@@ -44,6 +42,7 @@ class Sidebar extends React.Component<Props, State> {
             return IconStyleMobile
         }
     }
+    
     render() {
         return (
             <Link to={this.props.path} onClick={this.props.sidebarToggle}>
