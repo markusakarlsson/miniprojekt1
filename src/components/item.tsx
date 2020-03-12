@@ -117,13 +117,17 @@ const LiStyleMobile: CSSProperties = {
 const ImgStyle: CSSProperties = {
   height: "10rem",
   width: "auto",
-  overflow: "hidden"
+  overflow: "hidden",
+  objectFit: "contain"
 };
 
 const ImgStyleMobile: CSSProperties = {
+  maxWidth:'100%',
+  maxHeight:'100%',
   height: "14rem",
   width: "auto",
-  overflow: "hidden"
+  overflow: "hidden",
+  objectFit: "contain"
 };
 
 const SpinnerStyle: CSSProperties = {

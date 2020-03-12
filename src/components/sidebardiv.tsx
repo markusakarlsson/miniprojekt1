@@ -112,9 +112,7 @@ class SidebarDiv extends React.Component<Props, State> {
         return (
             <div style={DisplayStyle}>
                 <h3 style={H3Style}>Sol (day on Mars) {this.state.value}</h3>
-                <div style={RangeInput}>
                     <Items handleSliderChanged={this.handleSliderChanged} defaulValue={this.state.value} max={this.state.filteredList.length} size={this.props.size} data={this.state.data} />
-                </div>
             </div>
         )
     }
@@ -131,11 +129,7 @@ const DisplayStyle: CSSProperties = {
     alignItems: 'center',
     flexDirection: 'column',
     backgroundColor: 'rgba(0,0,0,0.5)',
-    minHeight: '100vh',
-    // backgroundImage:
-    //     'url(https://images.unsplash.com/photo-1435224668334-0f82ec57b605?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2850&q=80)',
-    // backgroundPosition: 'center',
-    // backgroundRepeat: 'no-repeat',
+    minHeight: '100vh'
 
 }
 
@@ -157,7 +151,6 @@ const RangeInput: CSSProperties = {
     width: '80rem',
     paddingTop: '2rem',
     zIndex: 3555,
-    // flexGrow: '1',
 }
 
 const H3Style: CSSProperties = {

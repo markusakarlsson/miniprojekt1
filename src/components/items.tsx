@@ -53,12 +53,12 @@ class Items extends React.Component<Props, State> {
             return (
                 <ErrorBoundary>
                     <>
-                        <div>
                         {
                   this.props.size === "desktop" ? 
                   <input defaultValue={this.props.defaulValue} style={RangeInput} onChange={this.props.handleSliderChanged} id="typeinp" type="range" min="0" max={this.props.max} step="1"/> 
                   : <input style={NumInput} type="number" onChange={this.props.handleSliderChanged} id="quantity" name="quantity" min="0" max={this.props.max}></input>
                 }
+                        <div>
                         
                             <ul style={this.props.size === 'desktop' ? UlStyle : UlStyleMobile}>
                                 {this.props.data.map((data, index) => <Item size={this.props.size} displayFunc={() => this.displayImg(index)} dataImg={data} />)}
@@ -108,17 +108,17 @@ const RangeInput: CSSProperties = {
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    width: '80rem',
+    width: '80%',
     marginTop: '8rem'
     // flexGrow: '1'
 }
 
 const NumInput: CSSProperties = {
-    height: '5rem',
+    height: '2rem',
+    width: '2rem',
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    width: '5rem',
 
     // flexGrow: '1'
 }
