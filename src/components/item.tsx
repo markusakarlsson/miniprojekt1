@@ -18,18 +18,8 @@ class Item extends React.Component<Props, State> {
     constructor(props: Props) {
         super(props)
         const image = new Image()
-        image.onload = () =>  this.loaded 
+        image.onload = () => console.log(' KOLLA HÄR! image is loaded')
         image.src = props.dataImg.img_src
-        this.state = {
-            loaded: false
-        }
-    }
-
-    loaded() {
-        this.setState({
-            loaded: true
-        })
-        console.log("Done loaded!")
     }
 
 
@@ -45,27 +35,18 @@ class Item extends React.Component<Props, State> {
 
     /* {(null as any).test} */
     render() {
-        if (this.state.loaded) {
-            return (
-                <Link to={"/images/" + this.props.dataImg.id} style={LiStyleDesktop}>
-                    <ErrorBoundary>
-                        <li key={this.props.dataImg.id}
-                            onClick={this.props.displayFunc}
-                            style={this.styleItemSize()}>
-                            <p style={TitleStyle}>{this.props.dataImg.earth_date}</p>
-                            <img style={this.props.size === 'desktop' ? ImgStyle : ImgStyleMobile} src={this.props.dataImg.img_src} alt={this.props.dataImg.id} />
-                        </li>
-                    </ErrorBoundary>
-                </Link>
-            )
-        } else {
-            return (
-                <div style={SpinnerStyle}>
-                    <RotateSpinner z-index="3000" />
-                </div>
-            )
-
-        }
+        return (
+            <Link to={"/images/" + this.props.dataImg.id} style={LiStyleDesktop}>
+                <ErrorBoundary>
+                    <li key={this.props.dataImg.id}  
+                    onClick={this.props.displayFunc}
+                     style={this.styleItemSize()}>
+                        <p style={TitleStyle}>{this.props.dataImg.id}</p>
+                        <img style={this.props.size === 'desktop' ? ImgStyle : ImgStyleMobile} src={this.props.dataImg.img_src} alt={this.props.dataImg.id} />
+                    </li>
+                </ErrorBoundary>
+            </Link>
+        )
     }
 }
 

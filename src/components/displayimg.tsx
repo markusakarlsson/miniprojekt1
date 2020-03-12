@@ -22,9 +22,9 @@ class DisplayImg extends React.Component<Props, State> {
 
     render() {
         return (
-            <Link to={"/images"}>
+            <Link to={"/images"} style={PStyle}>
                 <div style={BigImgDivStyle} onClick={this.props.displayNone} key={this.props.photoData.id}>
-                    <p style={PStyle}>{this.props.photoData.earth_date}</p>
+                    <p>Earthdate {this.props.photoData.earth_date}</p>
                     <img style={BigImgStyle} src={this.props.photoData.img_src} alt={this.props.photoData.earth_date} />
                 </div>
             </Link>
@@ -37,10 +37,11 @@ export default DisplayImg;
 
 const PStyle: CSSProperties = {
     zIndex: 2500,
-    position: 'fixed',
+    // position: 'fixed',
     top: 0,
     fontSize: '2rem',
-    textDecoration: 'none'
+    textDecoration: 'none',
+    color: 'whitesmoke'
 }
 
 
