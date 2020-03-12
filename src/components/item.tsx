@@ -19,8 +19,8 @@ class Item extends React.Component<Props, State> {
         super(props)
         
         const image = new Image()
-        image.onload = () => console.log('image is loaded')
-        image.src = props.dataImg
+        image.onload = () => console.log(' KOLLA HÄR! image is loaded')
+        image.src = props.dataImg.img_src
     }
 
     styleItemSize() {
