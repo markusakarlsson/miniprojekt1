@@ -20,11 +20,22 @@ class DisplayImg extends React.Component<Props, State> {
         super(props)
     }
 
+    styleTextSize() {
+        if(this.props.size === "desktop") {
+            return TextStyleDesktop;
+        } else if (this.props.size === "tablet") {
+            return TextStyleTablet;
+        } else {
+            return TextStyleMobile;
+        }
+        
+    }
+
     render() {
         return (
-            <Link to={"/images"} style={PStyle}>
+            <Link to={"/images"} style={LinkStyle}>
                 <div style={BigImgDivStyle} onClick={this.props.displayNone} key={this.props.photoData.id}>
-                    <p>Earthdate {this.props.photoData.earth_date}</p>
+                    <p style={this.styleTextSize()}>Earthdate {this.props.photoData.earth_date}</p>
                     <img style={BigImgStyle} src={this.props.photoData.img_src} alt={this.props.photoData.earth_date} />
                 </div>
             </Link>
@@ -35,15 +46,37 @@ class DisplayImg extends React.Component<Props, State> {
 
 export default DisplayImg;
 
-const PStyle: CSSProperties = {
+const TextStyleDesktop: CSSProperties = {
     zIndex: 2500,
-    // position: 'fixed',
-    top: 0,
+    marginTop: '2rem',
+    marginBottom: '1rem',
     fontSize: '2rem',
     textDecoration: 'none',
     color: 'whitesmoke'
 }
 
+const TextStyleTablet: CSSProperties = {
+    zIndex: 2500,
+    marginTop: '2rem',
+    marginBottom: '1rem',
+    fontSize: '2rem',
+    textDecoration: 'none',
+    color: 'whitesmoke'
+}
+
+const TextStyleMobile: CSSProperties = {
+    zIndex: 2500,
+    marginTop: '2rem',
+    marginBottom: '1rem',
+    fontSize: '1rem',
+    textDecoration: 'none',
+    color: 'whitesmoke'
+}
+
+const LinkStyle: CSSProperties = {
+    textDecoration: 'none',
+    color: 'whitesmoke'
+}
 
 const BigImgDivStyle: CSSProperties = {
     zIndex: 2000,

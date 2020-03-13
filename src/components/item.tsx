@@ -81,51 +81,59 @@ export default Item;
 const TitleStyle: CSSProperties = {
   textAlign: "center",
   color: "white",
-  textDecoration: "none"
+  textDecoration: "none",
+  paddingBottom: "1rem"
 };
 
 const LiStyleDesktop: CSSProperties = {
   textDecoration: "none",
   display: "flex",
   flexDirection: "column",
-  justifyContent: "center",
+  // justifyContent: "center",
   alignItems: "center",
-  height: "30%",
-  width: "30%",
-  padding: "1rem"
+  // height: "30%",
+  // width: "30%",
+  // paddingTop: "1rem"
 };
 
 const LiStyleTablet: CSSProperties = {
   display: "flex",
   flexDirection: "column",
-  justifyContent: "center",
+  // justifyContent: "center",
   alignItems: "center",
-  height: "30%",
-  width: "30%",
-  padding: "1rem"
+  // height: "30%",
+  // width: "30%",
+  // paddingTop: "1rem"
 };
 
 const LiStyleMobile: CSSProperties = {
   display: "flex",
   flexDirection: "column",
-  justifyContent: "center",
+  // justifyContent: "center",
   alignItems: "center",
-  height: "30%",
-  width: "30%"
+  // height: "30%",
+  // width: "30%"
 };
 
 const ImgStyle: CSSProperties = {
-  height: "10rem",
-  width: "auto",
+  height: "auto",
+  width: "100%",
+  maxWidth: "17rem",
   overflow: "hidden",
   objectFit: "contain"
 };
 
 const ImgStyleMobile: CSSProperties = {
-  maxWidth:'100%',
-  maxHeight:'100%',
-  height: "14rem",
-  width: "auto",
+  // maxWidth:'100%',
+  // maxHeight:'100%',
+  // height: "14rem",
+  // width: "auto",
+  // overflow: "hidden",
+  // objectFit: "contain"
+  
+  height: "auto",
+  width: "100%",
+  maxWidth: "15rem",
   overflow: "hidden",
   objectFit: "contain"
 };

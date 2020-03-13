@@ -80,7 +80,7 @@ const FooterStyleTablet: CSSProperties = {
 }
 
 const FooterStyleMobile: CSSProperties = {
-    height: '2rem',
+    height: '3.6rem',
     backgroundColor: 'rgba(0, 0, 0, 0.45)',
     position: 'absolute',
     bottom: '0',

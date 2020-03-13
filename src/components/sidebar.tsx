@@ -117,7 +117,7 @@ const SidebarStyleTablet: CSSProperties = {
 }
 
 const SidebarStyleMobile: CSSProperties = {
-    top: '-6.5rem',
+    top: '-6rem',
     left: '-2rem',
     width: '0',
     height: '0',

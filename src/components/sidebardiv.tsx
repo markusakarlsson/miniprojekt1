@@ -1,8 +1,7 @@
 import React, { CSSProperties, ErrorInfo } from 'react';
 import Items from './items';
-import { Link } from 'react-router-dom';
-import axios from 'axios';
-import { AnyNaptrRecord } from 'dns';
+// import { Link } from 'react-router-dom';
+// import { AnyNaptrRecord } from 'dns';
 import { PhotoManifestData, ManifestData, PhotoData } from '../apiTypes';
 
 
@@ -91,7 +90,8 @@ class SidebarDiv extends React.Component<Props, State> {
     handleSliderChanged = (event: React.ChangeEvent<HTMLInputElement>) => {
         clearTimeout(this.timer)
         this.setState({ value: Number(event.target.value) })
-        this.setState({ sol: this.state.filteredList[this.state.value].sol })
+        const value = Number(event.target.value);
+        this.setState({ sol: this.state.filteredList[value].sol })
         this.timer = setTimeout(() => {
             this.loadImages()
         }, 2000)
@@ -112,6 +112,7 @@ class SidebarDiv extends React.Component<Props, State> {
         return (
             <div style={DisplayStyle}>
                 <h3 style={H3Style}>Sol (day on Mars) {this.state.value}</h3>
+                
                     <Items handleSliderChanged={this.handleSliderChanged} defaulValue={this.state.value} max={this.state.filteredList.length} size={this.props.size} data={this.state.data} />
             </div>
         )

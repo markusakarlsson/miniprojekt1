@@ -2,9 +2,6 @@ import React, { CSSProperties } from 'react';
 import Item from './item';
 import DisplayImg from './displayimg';
 import ErrorBoundary from './../errorboundary';
-
-
-
 import { PhotoData } from '../apiTypes';
 
 
@@ -58,12 +55,12 @@ class Items extends React.Component<Props, State> {
                   <input defaultValue={this.props.defaulValue} style={RangeInput} onChange={this.props.handleSliderChanged} id="typeinp" type="range" min="0" max={this.props.max} step="1"/> 
                   : <input style={NumInput} type="number" onChange={this.props.handleSliderChanged} id="quantity" name="quantity" min="0" max={this.props.max}></input>
                 }
-                        <div>
+                        <>
                         
                             <ul style={this.props.size === 'desktop' ? UlStyle : UlStyleMobile}>
                                 {this.props.data.map((data, index) => <Item size={this.props.size} displayFunc={() => this.displayImg(index)} dataImg={data} />)}
                             </ul>
-                        </div>
+                        </>
                 </>
                 </ErrorBoundary>
 
@@ -87,20 +84,31 @@ export default Items;
 const UlStyle: CSSProperties = {
     paddingTop: '5rem',
     height: '100%',
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    listStyleType: 'none',
-    flexWrap: 'wrap'
+    // display: 'flex',
+    // justifyContent: 'center',
+    // alignItems: 'center',
+    // listStyleType: 'none',
+    // flexWrap: 'wrap'
+    width: "100%",
+    display: "grid",
+    gridTemplateColumns: "repeat(3, minmax(15rem, 1fr))",
+    gap: "2rem",
+    padding: "2rem"
 }
 
 const UlStyleMobile: CSSProperties = {
     height: '100%',
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    listStyleType: 'none',
-    flexDirection: 'column',
+    // display: 'flex',
+    // justifyContent: 'center',
+    // alignItems: 'center',
+    // listStyleType: 'none',
+    // flexDirection: 'column',
+    width: "100%",
+    display: "grid",
+    gridTemplateColumns: "repeat(auto-fit, minmax(15rem, 1fr))",
+    gap: "2rem",
+    padding: "2rem"
+
 }
 
 const RangeInput: CSSProperties = {
