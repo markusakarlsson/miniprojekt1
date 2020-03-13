@@ -117,7 +117,8 @@ const RangeInput: CSSProperties = {
     justifyContent: 'center',
     alignItems: 'center',
     width: '80%',
-    marginTop: '8rem'
+    marginTop: '4rem',
+    marginBottom: '4rem'
     // flexGrow: '1'
 }
 
