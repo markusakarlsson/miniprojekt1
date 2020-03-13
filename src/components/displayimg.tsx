@@ -1,6 +1,5 @@
 import React, { CSSProperties } from 'react';
 import { Link } from 'react-router-dom';
-
 import { PhotoManifestData, ManifestData, PhotoData } from '../apiTypes';
 import ErrorBoundary from '../errorboundary';
 
@@ -92,7 +91,7 @@ const BigImgDivStyle: CSSProperties = {
 const BigImgStyle: CSSProperties = {
     zIndex: 1000,
     // display: 'block',
-    border: 'solid black 10px',
+    border: 'solid black 3px',
     height: 'auto',
     width: '80%',
 }

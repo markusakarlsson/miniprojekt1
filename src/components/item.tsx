@@ -118,7 +118,7 @@ const LiStyleMobile: CSSProperties = {
 const ImgStyle: CSSProperties = {
   height: "auto",
   width: "100%",
-  maxWidth: "17rem",
+  maxWidth: "15rem",
   overflow: "hidden",
   objectFit: "contain"
 };

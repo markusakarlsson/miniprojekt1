@@ -1,6 +1,5 @@
 import React, { CSSProperties } from 'react';
 import SidebarDiv from './sidebardiv';
-
 import { Link } from 'react-router-dom';
 
 

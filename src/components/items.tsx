@@ -50,18 +50,14 @@ class Items extends React.Component<Props, State> {
             return (
                 <ErrorBoundary>
                     <>
-                        {
-                  this.props.size === "desktop" ? 
-                  <input defaultValue={this.props.defaulValue} style={RangeInput} onChange={this.props.handleSliderChanged} id="typeinp" type="range" min="0" max={this.props.max} step="1"/> 
-                  : <input style={NumInput} type="number" onChange={this.props.handleSliderChanged} id="quantity" name="quantity" min="0" max={this.props.max}></input>
-                }
+                    <input defaultValue={this.props.defaulValue} style={RangeInput} onChange={this.props.handleSliderChanged} id="typeinp" type="range" min="0" max={this.props.max} step="1"/>
                         <>
                         
                             <ul style={this.props.size === 'desktop' ? UlStyle : UlStyleMobile}>
                                 {this.props.data.map((data, index) => <Item size={this.props.size} displayFunc={() => this.displayImg(index)} dataImg={data} />)}
                             </ul>
                         </>
-                </>
+                    </>
                 </ErrorBoundary>
 
             )
@@ -89,10 +85,10 @@ const UlStyle: CSSProperties = {
     // alignItems: 'center',
     // listStyleType: 'none',
     // flexWrap: 'wrap'
-    width: "100%",
+    width: "80%",
     display: "grid",
-    gridTemplateColumns: "repeat(3, minmax(15rem, 1fr))",
-    gap: "2rem",
+    gridTemplateColumns: "repeat(auto-fit, minmax(15rem, 1fr))",
+    gap: "5rem",
     padding: "2rem"
 }
 
@@ -103,11 +99,11 @@ const UlStyleMobile: CSSProperties = {
     // alignItems: 'center',
     // listStyleType: 'none',
     // flexDirection: 'column',
-    width: "100%",
+    width: "80%",
     display: "grid",
     gridTemplateColumns: "repeat(auto-fit, minmax(15rem, 1fr))",
     gap: "2rem",
-    padding: "2rem"
+    padding: "1rem"
 
 }
 
@@ -119,16 +115,4 @@ const RangeInput: CSSProperties = {
     width: '80%',
     marginTop: '4rem',
     marginBottom: '4rem'
-    // flexGrow: '1'
 }
-
-const NumInput: CSSProperties = {
-    height: '2rem',
-    width: '2rem',
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-
-    // flexGrow: '1'
-}
-

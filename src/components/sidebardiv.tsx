@@ -1,10 +1,8 @@
 import React, { CSSProperties, ErrorInfo } from 'react';
 import Items from './items';
-// import { Link } from 'react-router-dom';
-// import { AnyNaptrRecord } from 'dns';
+import { Link } from 'react-router-dom';
+import { AnyNaptrRecord } from 'dns';
 import { PhotoManifestData, ManifestData, PhotoData } from '../apiTypes';
-
-
 import { MetroSpinner } from "react-spinners-kit";
 
 interface Props {
