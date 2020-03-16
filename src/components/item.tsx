@@ -21,16 +21,16 @@ class Item extends React.Component<Props, State> {
       isLoading: true
     };
     const image = new Image();
-    image.onload = () => this.doneLoading()
+    image.onload = () => this.doneLoading();
     image.src = props.dataImg.img_src;
 
-    this.doneLoading = this.doneLoading.bind(this)
+    this.doneLoading = this.doneLoading.bind(this);
   }
 
   doneLoading() {
     this.setState(state => ({
-      isLoading: !state.isLoading,
-    }))
+      isLoading: !state.isLoading
+    }));
   }
 
   styleItemSize() {
@@ -43,7 +43,6 @@ class Item extends React.Component<Props, State> {
     }
   }
 
-  /* {(null as any).test} */
   render() {
     if (!this.state.isLoading) {
       return (
@@ -52,7 +51,8 @@ class Item extends React.Component<Props, State> {
             <li
               key={this.props.dataImg.id}
               onClick={this.props.displayFunc}
-              style={this.styleItemSize()}>
+              style={this.styleItemSize()}
+            >
               <p style={TitleStyle}>{this.props.dataImg.id}</p>
               <img
                 style={
@@ -64,17 +64,16 @@ class Item extends React.Component<Props, State> {
             </li>
           </ErrorBoundary>
         </Link>
-      )
+      );
     } else {
       return (
         <li key={this.props.dataImg.id} style={LiStyleDesktop}>
           <MetroSpinner />
         </li>
-      )
+      );
     }
   }
 }
-
 
 export default Item;
 
@@ -89,30 +88,19 @@ const LiStyleDesktop: CSSProperties = {
   textDecoration: "none",
   display: "flex",
   flexDirection: "column",
-  // justifyContent: "center",
-  alignItems: "center",
-  // height: "30%",
-  // width: "30%",
-  // paddingTop: "1rem"
+  alignItems: "center"
 };
 
 const LiStyleTablet: CSSProperties = {
   display: "flex",
   flexDirection: "column",
-  // justifyContent: "center",
-  alignItems: "center",
-  // height: "30%",
-  // width: "30%",
-  // paddingTop: "1rem"
+  alignItems: "center"
 };
 
 const LiStyleMobile: CSSProperties = {
   display: "flex",
   flexDirection: "column",
-  // justifyContent: "center",
-  alignItems: "center",
-  // height: "30%",
-  // width: "30%"
+  alignItems: "center"
 };
 
 const ImgStyle: CSSProperties = {
@@ -124,13 +112,6 @@ const ImgStyle: CSSProperties = {
 };
 
 const ImgStyleMobile: CSSProperties = {
-  // maxWidth:'100%',
-  // maxHeight:'100%',
-  // height: "14rem",
-  // width: "auto",
-  // overflow: "hidden",
-  // objectFit: "contain"
-  
   height: "auto",
   width: "100%",
   maxWidth: "15rem",

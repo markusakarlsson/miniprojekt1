@@ -1,52 +1,55 @@
-import React, {CSSProperties} from 'react';
+import React, { CSSProperties } from "react";
 
-interface Props {
-
-}
+interface Props {}
 
 interface State {
-   hasError: boolean
+  hasError: boolean;
 }
 
 class ErrorBoundary extends React.Component<Props, State> {
-    constructor(props: Props) {
-      super(props);
-      this.state = { hasError: false };
-    }
-  
-    static getDerivedStateFromError(error: Error) {
-      return { hasError: true };
-    }
-  
-    componentDidCatch(error: Error, errorInfo: any) {
-      this.setState({hasError: true});
-    }
-  
-    render() {
-      if (this.state.hasError) {
-        return <div style={ErrorStyle}>
-          <img style={ImgStyle} src="./../assets/exclamation-triangle-solid.svg" />
-          <h1>Something went wrong</h1>
-          </div>
-      }
-  
-      return this.props.children; 
-    }
+  constructor(props: Props) {
+    super(props);
+    this.state = { hasError: false };
   }
 
-  export default ErrorBoundary
+  static getDerivedStateFromError(error: Error) {
+    return { hasError: true };
+  }
+
+  componentDidCatch(error: Error, errorInfo: any) {
+    this.setState({ hasError: true });
+  }
+
+  render() {
+    if (this.state.hasError) {
+      return (
+        <div style={ErrorStyle}>
+          <img
+            style={ImgStyle}
+            src="./../assets/exclamation-triangle-solid.svg"
+          />
+          <h1>Something went wrong</h1>
+        </div>
+      );
+    }
+
+    return this.props.children;
+  }
+}
+
+export default ErrorBoundary;
 
 const ErrorStyle: CSSProperties = {
-  display: 'flex',
-  justifyContent: 'center',
-  alignItems: 'center',
-  flexDirection: 'column',
-  height: '50%',
-  width: '60%',
-  textAlign: 'center',
-  color: 'white'
-}
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  flexDirection: "column",
+  height: "50%",
+  width: "60%",
+  textAlign: "center",
+  color: "white"
+};
 
 const ImgStyle: CSSProperties = {
-  height:'30%',
-}
+  height: "30%"
+};
