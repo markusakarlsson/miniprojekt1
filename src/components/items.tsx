@@ -5,7 +5,6 @@ import ErrorBoundary from "./../errorboundary";
 import { PhotoData } from "../apiTypes";
 import { MetroSpinner } from "react-spinners-kit";
 
-
 interface Props {
   size: string;
   data: PhotoData[];
@@ -61,25 +60,23 @@ class Items extends React.Component<Props, State> {
               max={this.props.max}
               step="1"
             />
-            {this.props.isLoading
-              ? (
-                <div style={SpinnerStyle}>
-                  <MetroSpinner />
-                </div>
-              ) : (
-                <ul
-                  style={this.props.size === "desktop" ? UlStyle : UlStyleMobile}
-                >
-                  {this.props.data.map((data, index) => (
-                    <Item
-                      size={this.props.size}
-                      displayFunc={() => this.displayImg(index)}
-                      dataImg={data}
-                    />
-                  ))}
-                </ul>
-              )
-            }
+            {this.props.isLoading ? (
+              <div style={SpinnerStyle}>
+                <MetroSpinner />
+              </div>
+            ) : (
+              <ul
+                style={this.props.size === "desktop" ? UlStyle : UlStyleMobile}
+              >
+                {this.props.data.map((data, index) => (
+                  <Item
+                    size={this.props.size}
+                    displayFunc={() => this.displayImg(index)}
+                    dataImg={data}
+                  />
+                ))}
+              </ul>
+            )}
           </>
         </ErrorBoundary>
       );
@@ -133,6 +130,5 @@ const SpinnerStyle: CSSProperties = {
   width: "100%",
   display: "flex",
   justifyContent: "center",
-  alignItems: "center",
   minHeight: "100vh"
 };

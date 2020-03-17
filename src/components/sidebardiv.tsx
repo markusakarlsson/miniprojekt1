@@ -120,31 +120,10 @@ const DisplayStyle: CSSProperties = {
   height: "100%",
   width: "100%",
   display: "flex",
-  justifyContent: "center",
   alignItems: "center",
   flexDirection: "column",
   backgroundColor: "rgba(0,0,0,0.5)",
   minHeight: "100vh"
-};
-
-const SpinnerStyle: CSSProperties = {
-  zIndex: 3000,
-  height: "100%",
-  width: "100%",
-  display: "flex",
-  justifyContent: "center",
-  alignItems: "center",
-  minHeight: "100vh"
-};
-
-const RangeInput: CSSProperties = {
-  height: "100%",
-  display: "flex",
-  justifyContent: "center",
-  alignItems: "center",
-  width: "80rem",
-  paddingTop: "2rem",
-  zIndex: 3555
 };
 
 const H3Style: CSSProperties = {
