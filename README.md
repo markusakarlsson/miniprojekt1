@@ -14,7 +14,7 @@ Resultatet är Space App där man hämtar bilder från Mars genom ett API.
 API:et är från NASA och innehåller bilder som är tagna av en rover som heter Curiosity.
 Man kan själv styra vilken dag man vill se bilder ifrån.
 
-För att köra appen i webbläsaren skriver du in "npm start" i terminalen.
+För att köra appen i webbläsaren skriver du först in "npm install" och därefter "npm start" i terminalen.
 
 ## GitHub
 
