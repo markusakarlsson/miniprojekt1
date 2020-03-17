@@ -57,7 +57,7 @@ class Items extends React.Component<Props, State> {
               id="typeinput"
               type="range"
               min="0"
-              max={this.props.max}
+              max={this.props.max - 1}
               step="1"
             />
             {this.props.isLoading ? (

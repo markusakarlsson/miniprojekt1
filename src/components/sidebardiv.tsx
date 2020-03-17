@@ -1,4 +1,4 @@
-import React, { CSSProperties} from "react";
+import React, { CSSProperties } from "react";
 import Items from "./items";
 import { PhotoManifestData, ManifestData, PhotoData } from "../apiTypes";
 
@@ -67,12 +67,12 @@ class SidebarDiv extends React.Component<Props, State> {
     const { filteredList } = this.state;
     const response = await fetch(
       "https://api.nasa.gov/mars-photos/api/v1/rovers/" +
-        "curiosity/photos?sol=" +
-        this.state.sol +
-        "&page=1&camera=" +
-        this.camera +
-        "&api_key=" +
-        this.APIKey
+      "curiosity/photos?sol=" +
+      this.state.sol +
+      "&page=1&camera=" +
+      this.camera +
+      "&api_key=" +
+      this.APIKey
     );
 
     const data = await response.json();
