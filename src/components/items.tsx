@@ -3,6 +3,8 @@ import Item from "./item";
 import DisplayImg from "./displayimg";
 import ErrorBoundary from "./../errorboundary";
 import { PhotoData } from "../apiTypes";
+import { MetroSpinner } from "react-spinners-kit";
+
 
 interface Props {
   size: string;
@@ -10,6 +12,7 @@ interface Props {
   handleSliderChanged: (event: React.ChangeEvent<HTMLInputElement>) => void;
   max: number;
   defaulValue: number;
+  isLoading: boolean;
 }
 
 interface State {
@@ -58,32 +61,36 @@ class Items extends React.Component<Props, State> {
               max={this.props.max}
               step="1"
             />
-            <>
-              <ul
-                style={this.props.size === "desktop" ? UlStyle : UlStyleMobile}
-              >
-                {this.props.data.map((data, index) => (
-                  <Item
-                    size={this.props.size}
-                    displayFunc={() => this.displayImg(index)}
-                    dataImg={data}
-                  />
-                ))}
-              </ul>
-            </>
+            {this.props.isLoading
+              ? (
+                <div style={SpinnerStyle}>
+                  <MetroSpinner />
+                </div>
+              ) : (
+                <ul
+                  style={this.props.size === "desktop" ? UlStyle : UlStyleMobile}
+                >
+                  {this.props.data.map((data, index) => (
+                    <Item
+                      size={this.props.size}
+                      displayFunc={() => this.displayImg(index)}
+                      dataImg={data}
+                    />
+                  ))}
+                </ul>
+              )
+            }
           </>
         </ErrorBoundary>
       );
     } else {
       return (
         <ErrorBoundary>
-          <>
-            <DisplayImg
-              size={this.props.size}
-              photoData={this.props.data[this.state.index]}
-              displayNone={this.displayNone}
-            />
-          </>
+          <DisplayImg
+            size={this.props.size}
+            photoData={this.props.data[this.state.index]}
+            displayNone={this.displayNone}
+          />
         </ErrorBoundary>
       );
     }
@@ -119,4 +126,13 @@ const RangeInput: CSSProperties = {
   width: "80%",
   marginTop: "4rem",
   marginBottom: "4rem"
+};
+const SpinnerStyle: CSSProperties = {
+  zIndex: 3000,
+  height: "100%",
+  width: "100%",
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  minHeight: "100vh"
 };

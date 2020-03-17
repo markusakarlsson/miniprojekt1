@@ -97,22 +97,12 @@ class SidebarDiv extends React.Component<Props, State> {
   };
 
   render() {
-    if (this.state.isLoading) {
-      {
-      }
-      return (
-        <>
-          <div style={SpinnerStyle}>
-            <MetroSpinner />
-          </div>
-        </>
-      );
-    }
     return (
       <div style={DisplayStyle}>
         <h3 style={H3Style}>Sol (day on Mars) {this.state.value}</h3>
 
         <Items
+          isLoading={this.state.isLoading}
           handleSliderChanged={this.handleSliderChanged}
           defaulValue={this.state.value}
           max={this.state.filteredList.length}
