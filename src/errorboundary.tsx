@@ -16,7 +16,7 @@ class ErrorBoundary extends React.Component<Props, State> {
     return { hasError: true };
   }
 
-  componentDidCatch(error: Error, errorInfo: any) {
+  componentDidCatch(error: Error) {
     this.setState({ hasError: true });
   }
 
@@ -27,6 +27,7 @@ class ErrorBoundary extends React.Component<Props, State> {
           <img
             style={ImgStyle}
             src="./../assets/exclamation-triangle-solid.svg"
+            alt="error"
           />
           <h1>Something went wrong</h1>
         </div>

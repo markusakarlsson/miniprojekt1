@@ -8,9 +8,7 @@ interface Props {
 interface State {}
 
 class Footer extends React.Component<Props, State> {
-  constructor(props: Props) {
-    super(props);
-  }
+
 
   styleFooterSize() {
     if (this.props.size === "desktop") {

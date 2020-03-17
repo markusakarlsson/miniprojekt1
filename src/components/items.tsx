@@ -54,7 +54,7 @@ class Items extends React.Component<Props, State> {
               defaultValue={this.props.defaulValue}
               style={RangeInput}
               onChange={this.props.handleSliderChanged}
-              id="typeinp"
+              id="typeinput"
               type="range"
               min="0"
               max={this.props.max}
@@ -65,18 +65,18 @@ class Items extends React.Component<Props, State> {
                 <MetroSpinner />
               </div>
             ) : (
-              <ul
-                style={this.props.size === "desktop" ? UlStyle : UlStyleMobile}
-              >
-                {this.props.data.map((data, index) => (
-                  <Item
-                    size={this.props.size}
-                    displayFunc={() => this.displayImg(index)}
-                    dataImg={data}
-                  />
-                ))}
-              </ul>
-            )}
+                <ul
+                  style={this.props.size === "desktop" ? UlStyle : UlStyleMobile}
+                >
+                  {this.props.data.map((data, index) => (
+                    <Item
+                      size={this.props.size}
+                      displayFunc={() => this.displayImg(index)}
+                      dataImg={data}
+                    />
+                  ))}
+                </ul>
+              )}
           </>
         </ErrorBoundary>
       );
@@ -122,7 +122,9 @@ const RangeInput: CSSProperties = {
   alignItems: "center",
   width: "80%",
   marginTop: "4rem",
-  marginBottom: "4rem"
+  marginBottom: "4rem",
+  color: 'white',
+  backgroundColor: '#464646',
 };
 const SpinnerStyle: CSSProperties = {
   zIndex: 3000,

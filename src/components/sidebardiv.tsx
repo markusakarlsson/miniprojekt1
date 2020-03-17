@@ -1,7 +1,6 @@
-import React, { CSSProperties, ErrorInfo } from "react";
+import React, { CSSProperties} from "react";
 import Items from "./items";
 import { PhotoManifestData, ManifestData, PhotoData } from "../apiTypes";
-import { MetroSpinner } from "react-spinners-kit";
 
 interface Props {
   size: string;

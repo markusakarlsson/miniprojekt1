@@ -11,9 +11,7 @@ interface Props {
 interface State {}
 
 class DisplayImg extends React.Component<Props, State> {
-  constructor(props: Props) {
-    super(props);
-  }
+
 
   styleTextSize() {
     if (this.props.size === "desktop") {

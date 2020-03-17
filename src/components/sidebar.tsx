@@ -10,9 +10,6 @@ interface Props {
 interface State {}
 
 class Sidebar extends React.Component<Props, State> {
-  constructor(props: Props) {
-    super(props);
-  }
 
   styleSidebarSize() {
     if (this.props.size === "desktop") {
@@ -50,12 +47,6 @@ class Sidebar extends React.Component<Props, State> {
 }
 
 export default Sidebar;
-
-const displayStyle: CSSProperties = {
-  height: "100%",
-  width: "100%",
-  backgroundColor: "rgb(236, 236, 236)"
-};
 
 const IconStyleDesktop: CSSProperties = {
   zIndex: 1500,

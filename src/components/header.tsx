@@ -8,9 +8,7 @@ interface Props {
 interface State {}
 
 class Header extends React.Component<Props, State> {
-  constructor(props: Props) {
-    super(props);
-  }
+
 
   get styleHeaderSize() {
     if (this.props.size === "desktop") {

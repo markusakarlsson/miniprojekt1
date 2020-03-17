@@ -38,3 +38,25 @@ html {
   --color5: #09666c;
   --color6: #014243;
 }
+
+#typeinput
+{
+    -webkit-appearance: none !important;
+    background: #bbbbbb;
+    height: 1px;
+    width: 425px;
+    -webkit-transform: translate3d(0px, 0px, 0px);
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+#typeinput::-webkit-slider-thumb
+{
+    -webkit-appearance: none !important;
+    background: rgb(139, 139, 139);
+    height: 10px;
+    width: 20px;
+    cursor: pointer;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+}
